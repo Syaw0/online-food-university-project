@@ -1,0 +1,14 @@
+#login-view {
+  -fx-padding: 20;
+  -fx-background-color: #f0f0f0;
+}
+
+.label {
+  -fx-font-size: 16px;
+  -fx-text-fill: #333;
+}
+
+.button {
+  -fx-background-color: #4caf50;
+  -fx-text-fill: white;
+}
