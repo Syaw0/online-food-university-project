@@ -1,14 +1,36 @@
-#login-view {
-  -fx-padding: 20;
-  -fx-background-color: #f0f0f0;
+@import url("theme.css");
+@import url("button.css");
+@import url("typography.css");
+@import url("textfield.css");
+
+.root {
+  -fx-node-orientation: right-to-left;
+  -fx-letter-spacing: normal;
+  -fx-background-color: #ffffff;
+  -fx-font-family: "Vazirmatn", sans-serif;
+  -fx-letter-spacing: -0.5px;
 }
 
-.label {
-  -fx-font-size: 16px;
-  -fx-text-fill: #333;
+* {
+  -fx-node-orientation: right-to-left;
 }
 
-.button {
-  -fx-background-color: #4caf50;
-  -fx-text-fill: white;
+.auth-layout-container {
+  -fx-alignment: center;
+}
+
+.auth-right-pane {
+  -fx-background-color: #fff;
+  -fx-padding: 40 32;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 16, 0, 0, 4);
+  -fx-background-radius: 16;
+  -fx-min-width: 400;
+  -fx-max-width: 480;
+  -fx-alignment: center;
+}
+
+.auth-left-pane {
+  -fx-background-radius: 16 0 0 16;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 24, 0, 0, 8);
+  -fx-overflow: hidden;
 }

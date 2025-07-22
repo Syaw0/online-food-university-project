@@ -1,0 +1,53 @@
+/* Material Design TextField */
+.text-field,
+.password-field {
+  -fx-background-color: transparent;
+  -fx-border-width: 0 0 2 0;
+  -fx-border-color: #bdbdbd;
+  -fx-padding: 8 0 6 0;
+  -fx-font-size: 16px;
+  -fx-text-fill: #222;
+  -fx-background-insets: 0;
+  -fx-background-radius: 0;
+  -fx-border-radius: 0;
+  -fx-pref-width: 240;
+  -fx-focus-color: #6200ee;
+  -fx-faint-focus-color: transparent;
+  -fx-highlight-fill: #e3e3e3;
+  -fx-highlight-text-fill: #222;
+  -fx-prompt-text-fill: #aaa;
+  -fx-cursor: text;
+  -fx-effect: null;
+}
+.text-field:focused,
+.password-field:focused {
+  -fx-border-color: #6200ee;
+  -fx-border-width: 0 0 2 0;
+}
+
+/* Material Design Checkbox */
+.checkbox {
+  -fx-padding: 6 0 6 0;
+  -fx-font-size: 15px;
+  -fx-text-fill: #222;
+}
+.checkbox .box {
+  -fx-background-color: #fff;
+  -fx-border-color: #bdbdbd;
+  -fx-border-width: 2;
+  -fx-background-radius: 3;
+  -fx-border-radius: 3;
+  -fx-pref-width: 20;
+  -fx-pref-height: 20;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.04), 2, 0, 0, 1);
+}
+.checkbox:selected .box {
+  -fx-background-color: #6200ee;
+  -fx-border-color: #6200ee;
+}
+.checkbox:selected .mark {
+  -fx-background-color: #fff;
+}
+.checkbox:focused .box {
+  -fx-border-color: #3700b3;
+}

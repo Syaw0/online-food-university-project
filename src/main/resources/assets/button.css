@@ -1,0 +1,63 @@
+@import url("theme.css");
+
+/* Material Design Button Variations */
+
+.button-contained {
+  -fx-background-color: var(--md-primary);
+  -fx-text-fill: var(--md-on-primary);
+  -fx-padding: 10 24;
+  -fx-font-size: 15px;
+  -fx-font-weight: 500;
+  -fx-background-radius: 4;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(gaussian, rgba(98, 0, 238, 0.18), 4, 0, 0, 2);
+  -fx-border-width: 0;
+  -fx-border-color: transparent;
+  -fx-transition: background-color 0.2s;
+}
+.button-contained:hover {
+  -fx-background-color: var(--md-primary-variant);
+}
+.button-contained:pressed {
+  -fx-background-color: var(--md-primary-variant);
+  -fx-effect: dropshadow(gaussian, rgba(98, 0, 238, 0.28), 8, 0, 0, 4);
+}
+
+.button-outlined {
+  -fx-background-color: transparent;
+  -fx-border-color: var(--md-primary);
+  -fx-border-width: 2;
+  -fx-text-fill: var(--md-primary);
+  -fx-padding: 10 24;
+  -fx-font-size: 15px;
+  -fx-font-weight: 500;
+  -fx-background-radius: 4;
+  -fx-border-radius: 4;
+  -fx-cursor: hand;
+  -fx-transition: background-color 0.2s, border-color 0.2s;
+}
+.button-outlined:hover {
+  -fx-background-color: #f3e8fd;
+  -fx-border-color: var(--md-primary-variant);
+}
+.button-outlined:pressed {
+  -fx-background-color: #ede7f6;
+  -fx-border-color: var(--md-primary-variant);
+}
+
+.button-text {
+  -fx-background-color: transparent;
+  -fx-text-fill: var(--md-primary);
+  -fx-padding: 10 16;
+  -fx-font-size: 15px;
+  -fx-font-weight: 500;
+  -fx-cursor: hand;
+  -fx-background-radius: 4;
+  -fx-transition: background-color 0.2s;
+}
+.button-text:hover {
+  -fx-background-color: #f3e8fd;
+}
+.button-text:pressed {
+  -fx-background-color: #ede7f6;
+}
