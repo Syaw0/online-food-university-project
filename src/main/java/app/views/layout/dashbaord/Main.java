@@ -4,10 +4,11 @@ import app.models.*;
 import app.states.StateManager;
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
+import app.views.pages.seller.FoodListPage;
+import app.views.pages.seller.RestaurantSettingPage;
 import app.views.pages.shared.ProfilePage;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
-import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -62,17 +63,18 @@ public class Main {
 
     private void updateContent(String viewKey) {
         switch (viewKey) {
+
+//            ======= BUYER =======
             case "profile":
                 scrollContainer.setContent(new ProfilePage(currentUser));
                 break;
-            case "buyer_dashboard":
-                scrollContainer.setContent(createDashboardContent(currentUser));
+
+//            ======= SELLER =======
+            case "seller_restaurant_setting":
+                scrollContainer.setContent(new RestaurantSettingPage());
                 break;
-            case "buyer_orders":
-                scrollContainer.setContent(createBuyerOrdersView());
-                break;
-            case "seller_dashboard":
-                scrollContainer.setContent(createDashboardContent(currentUser));
+            case "seller_food_list":
+                scrollContainer.setContent(new FoodListPage());
                 break;
             case "seller_products":
                 scrollContainer.setContent(createSellerProductsView());

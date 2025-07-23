@@ -22,7 +22,7 @@ public class FoodRepo {
                 "85000",
                 "50",
                 "1", 
-                "/assets/images/kebab.png",
+                "/assets/images/foods/kebab.png",
                 "4.7"
         ));
 
@@ -34,7 +34,7 @@ public class FoodRepo {
                 "75000",
                 "35",
                 "1", 
-                "/assets/images/ghorme.png",
+                "/assets/images/foods/ghorme.png",
                 "4.5"
         ));
 
@@ -46,7 +46,7 @@ public class FoodRepo {
                 "125000",
                 "20",
                 "1", 
-                "/assets/images/steak.png",
+                "/assets/images/foods/steak.png",
                 "4.8"
         ));
 
@@ -58,7 +58,7 @@ public class FoodRepo {
                 "45000",
                 "40",
                 "2", 
-                "/assets/images/salad.png",
+                "/assets/images/foods/salad.png",
                 "4.3"
         ));
 
@@ -70,7 +70,7 @@ public class FoodRepo {
                 "65000",
                 "60",
                 "3", 
-                "/assets/images/burger.png",
+                "/assets/images/foods/burger.png",
                 "4.6"
         ));
     }
