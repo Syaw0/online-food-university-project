@@ -1,19 +1,31 @@
-package app.views.form;
+package app.views.forms.auth;
+
+import java.util.List;
+import java.util.ArrayList;
 
 import javafx.geometry.Pos;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
 import app.views.component.TextFieldComponent;
 import app.views.component.PasswordFieldComponent;
 
-import java.util.List;
-import java.util.ArrayList;
+import app.models.User;
+
+import app.controllers.AuthController;
+
+import app.utils.NavigationController;
+import app.states.StateManager;
+
 
 public class LoginForm extends VBox {
+    private final NavigationController navControl;
+    private final StateManager stateManager;
+    private final AuthController authController;
     public final TextFieldComponent phoneField;
     public final PasswordFieldComponent passField;
     public final Typography errorLabel;
@@ -22,15 +34,21 @@ public class LoginForm extends VBox {
 
     public LoginForm(Runnable onSwitchToRegister) {
         super(10);
+        this.stateManager = StateManager.getInstance();
+        this.navControl = this.stateManager.getNavigationController();
+        this.authController = new AuthController();
+
         setAlignment(Pos.CENTER_LEFT);
         setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         setStyle("-fx-padding: 40;");
 
         phoneField = new TextFieldComponent();
         phoneField.setPromptText("شماره تماس");
+        phoneField.setText("09001234367");
 
         passField = new PasswordFieldComponent();
         passField.setPromptText("رمز عبور");
+        passField.setText("123");
 
         errorLabel = new Typography("", Typography.Variant.LABEL);
         errorLabel.setStyle("-fx-text-fill: red;");
@@ -61,11 +79,21 @@ public class LoginForm extends VBox {
     private void setupLoginValidation() {
         loginBtn.setOnAction(e -> {
             errorLabel.setText("");
-            List<String> errors = validateLogin(phoneField.getText().trim(), passField.getText().trim());
+            String phoneData = phoneField.getText().trim();
+            String passData =  passField.getText().trim();
+            List<String> errors = validateLogin(phoneData, passData);
             if (!errors.isEmpty()) {
                 errorLabel.setText(String.join("\n", errors));
             } else {
-                System.out.println("Validated! ارسال اطلاعات به API...");
+               User loggedInUser = this.authController.login(phoneData, passData);
+            if (loggedInUser == null) {
+                errorLabel.setText("شماره تلفن یا رمز عبور اشتباه می‌باشد. مجددا تلاش کنید");
+                return;
+
+            } 
+            this.stateManager.userState.login(loggedInUser);
+                this.navControl.loginSuccess();
+                System.out.println("Credential is correct. move to the dashboard..."+loggedInUser);
             }
         });
     }

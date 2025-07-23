@@ -4,8 +4,8 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import app.views.component.LogoComponent;
-import app.views.form.LoginForm;
-import app.views.form.RegisterForm;
+import app.views.forms.auth.LoginForm;
+import app.views.forms.auth.RegisterForm;
 
 public class AuthLayout {
 
@@ -13,12 +13,10 @@ public class AuthLayout {
     private final StackPane leftPane = new StackPane();
     private String currentImage = "/assets/images/auth-1.jpg";
 
-    // These keep the same instance for switching between forms
     private LoginForm loginForm;
     private RegisterForm registerForm;
 
     public AuthLayout() {
-        // Define switch logic as lambdas
         loginForm = new LoginForm(this::showRegisterForm);
         registerForm = new RegisterForm(this::showLoginForm);
     }

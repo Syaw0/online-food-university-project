@@ -2,6 +2,7 @@
 @import url("button.css");
 @import url("typography.css");
 @import url("textfield.css");
+@import url("dashboard.css");
 
 .root {
   -fx-node-orientation: right-to-left;

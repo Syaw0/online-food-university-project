@@ -1,11 +1,10 @@
-package app.views.form;
+package app.views.forms.auth;
 
 import javafx.geometry.Pos;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.control.ComboBox;
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
 import app.views.component.TextFieldComponent;
