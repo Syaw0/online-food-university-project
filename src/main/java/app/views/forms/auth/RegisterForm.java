@@ -1,5 +1,9 @@
 package app.views.forms.auth;
 
+import app.models.User;
+import app.models.UserType;
+import app.states.StateManager;
+import app.utils.NavigationController;
 import javafx.geometry.Pos;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Insets;
@@ -13,6 +17,7 @@ import app.views.component.ComboBoxComponent;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class RegisterForm extends VBox {
     public final TextFieldComponent fullNameField;
@@ -24,6 +29,8 @@ public class RegisterForm extends VBox {
     public final ButtonComponent registerBtn;
     public final ButtonComponent switchToLogin;
     public final ComboBoxComponent userTypeBox;
+    private  final StateManager stateManger = StateManager.getInstance();
+    private final NavigationController navControl=stateManger.getNavigationController();
 
     public RegisterForm(Runnable onSwitchToLogin) {
         super(10);
@@ -97,6 +104,13 @@ public class RegisterForm extends VBox {
             if (!errors.isEmpty()) {
                 errorLabel.setText(String.join("\n", errors));
             } else {
+                String newUserId = UUID.randomUUID().toString();
+                UserType userType = selectedType =="خریدار عادی" ? UserType.BUYER: selectedType =="پیک"? UserType.DELIVERY: UserType.SELLER;
+                User newUser = new User(newUserId,fullNameField.getText(),phoneField.getText(),passField.getText(),addressField.getText(),emailField.getText(),userType,"","",false);
+                stateManger.userState.setCurrentUser(newUser);
+                stateManger.userState.login(newUser);
+                navControl.loginSuccess();
+                System.out.println("Credential is correct. move to the dashboard..."+newUser);
                 System.out.println("Validated! ارسال اطلاعات به API...");
             }
         });
