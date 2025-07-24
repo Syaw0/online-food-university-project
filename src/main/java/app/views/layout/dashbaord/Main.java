@@ -4,6 +4,7 @@ import app.models.*;
 import app.states.StateManager;
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
+import app.views.pages.buyer.CartPage;
 import app.views.pages.buyer.RestaurantListPage;
 import app.views.pages.seller.*;
 import app.views.pages.shared.ProfilePage;
@@ -84,6 +85,10 @@ public class Main {
 
             case "buyer_restaurant_list":
                 scrollContainer.setContent(new RestaurantListPage());
+                break;
+
+            case "buyer_cart":
+                scrollContainer.setContent(new CartPage());
                 break;
 
 //            ======= SELLER =======
