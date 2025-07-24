@@ -56,7 +56,7 @@ public abstract class BaseNav {
 
         Label userName = new Typography(user.getFullName(), Typography.Variant.H3);
         userName.textProperty().bind(user.fullNameProperty());
-        userName.getStyleClass().add("user-name");
+        userName.getStyleClass().add("nav-user-name");
         userName.setPadding(new Insets(0, 0, 3, 0));
 
         Label userRole = new Typography(user.roleToPersian(), Typography.Variant.LABEL);

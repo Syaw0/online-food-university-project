@@ -8,6 +8,7 @@ public class StateManager {
     private static StateManager instance;
     private NavigationController navigation;
 
+    public final OrderState orderState = new OrderState();
     public final  RestaurantState restaurantState = new RestaurantState();
     public final NavigationState navigationState = new NavigationState();
     public final UserState userState = new UserState();

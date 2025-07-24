@@ -28,6 +28,7 @@ public class FoodDetailDialog extends Dialog<Void> {
         // Create image view
         ImageView imageView = new ImageView();
         try {
+            System.out.println(food);
             imageView.setImage(new Image(food.getImage()));
         } catch (Exception e) {
             imageView.setImage(new Image("file:src/main/resources/assets/images/default-food.png"));

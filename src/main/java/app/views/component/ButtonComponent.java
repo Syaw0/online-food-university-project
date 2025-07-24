@@ -9,6 +9,20 @@ public class ButtonComponent extends Button {
 
     public ButtonComponent(String text, Variation variation) {
         super(text);
+        applyVariation(variation);
+    }
+
+    public void setButtonColors(String backgroundColor, String textColor, String borderColor) {
+        String style = String.format(
+                "-fx-background-color: %s; " +
+                        "-fx-text-fill: %s; " +
+                        "-fx-border-color: %s;",
+                backgroundColor, textColor, borderColor
+        );
+        this.setStyle(style);
+    }
+
+    private void applyVariation(Variation variation) {
         switch (variation) {
             case CONTAINED:
                 this.getStyleClass().add("button-contained");
@@ -21,4 +35,4 @@ public class ButtonComponent extends Button {
                 break;
         }
     }
-} 
+}

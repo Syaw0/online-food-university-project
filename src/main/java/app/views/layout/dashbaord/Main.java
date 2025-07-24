@@ -4,8 +4,7 @@ import app.models.*;
 import app.states.StateManager;
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
-import app.views.pages.seller.FoodListPage;
-import app.views.pages.seller.RestaurantSettingPage;
+import app.views.pages.seller.*;
 import app.views.pages.shared.ProfilePage;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
@@ -64,10 +63,12 @@ public class Main {
     private void updateContent(String viewKey) {
         switch (viewKey) {
 
-//            ======= BUYER =======
+//            ======= SHARED =======
             case "profile":
                 scrollContainer.setContent(new ProfilePage(currentUser));
                 break;
+
+//            ======= BUYER =======
 
 //            ======= SELLER =======
             case "seller_restaurant_setting":
@@ -76,15 +77,23 @@ public class Main {
             case "seller_food_list":
                 scrollContainer.setContent(new FoodListPage());
                 break;
-            case "seller_products":
-                scrollContainer.setContent(createSellerProductsView());
+            case "seller_pending_order_list":
+                scrollContainer.setContent(new PendingOrderListPage());
                 break;
-            case "admin_dashboard":
-                scrollContainer.setContent(createDashboardContent(currentUser));
+            case "seller_in_progress_order_list":
+                scrollContainer.setContent(new InProgressOrderListPage());
                 break;
+
+            case "seller_complete_order_list":
+                scrollContainer.setContent(new CompleteOrderListPage());
+                break;
+
+//            ======= ADMIN =======
             case "admin_users":
                 scrollContainer.setContent(createAdminUsersView());
                 break;
+
+//            ======= DELIVERY =======
             case "delivery_dashboard":
                 scrollContainer.setContent(createDashboardContent(currentUser));
                 break;

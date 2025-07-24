@@ -1,9 +1,6 @@
 package app.models;
 
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.*;
 
 public class User {
     private final StringProperty id = new SimpleStringProperty();                  
@@ -14,14 +11,13 @@ public class User {
     private final StringProperty email = new SimpleStringProperty();
     private final ObjectProperty<UserType> userType = new SimpleObjectProperty<>();
     private final StringProperty profile = new SimpleStringProperty();             
-    private final StringProperty bankAccountNumber = new SimpleStringProperty();   
+    private final StringProperty bankAccountNumber = new SimpleStringProperty();
+    private Boolean  availability = false;
 
-    
     public User(String id, String fullName, String phone, String password,
                 String address, String email, UserType userType,
-                String profile, String bankAccountNumber) {
+                String profile, String bankAccountNumber, Boolean availability) {
 
-        
         if (id == null || id.trim().isEmpty()) {
             this.id.set(java.util.UUID.randomUUID().toString());
         } else {
@@ -46,8 +42,8 @@ public class User {
 
     
     public User(String fullName, String phone, String password,
-                String address, String email, UserType userType,String profile, String bankAccountNumber) {
-        this("", fullName, phone, password, address, email, userType, profile   , bankAccountNumber);
+                String address, String email, UserType userType,String profile, String bankAccountNumber,Boolean availability) {
+        this("", fullName, phone, password, address, email, userType, profile   , bankAccountNumber,availability);
     }
 
     
@@ -71,7 +67,7 @@ public class User {
     public UserType getUserType() { return userType.get(); }
     public String getProfile() { return profile.get(); }                          
     public String getBankAccountNumber() { return bankAccountNumber.get(); }      
-
+    public Boolean getAvailability() { return availability; }
     
     public void setId(String id) { this.id.set(id); }                             
     public void setFullName(String name) { fullName.set(name); }
@@ -84,6 +80,7 @@ public class User {
     public void setPassword(String password) { this.password.set(password); }
     public void setAddress(String address) { this.address.set(address); }
     public void setEmail(String email) { this.email.set(email); }
+    public  void setAvailability(Boolean availability){this.availability = availability;}
 
     public String roleToPersian(){
         return switch (this.getUserType()) {
@@ -93,8 +90,6 @@ public class User {
             case SELLER -> "رستوران دار";
             case GUEST -> "مهمان";
         };
-
-
     }
 
     @Override
