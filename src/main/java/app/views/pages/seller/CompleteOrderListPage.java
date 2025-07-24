@@ -35,7 +35,7 @@ public class CompleteOrderListPage extends VBox {
         setPadding(new Insets(20));
         setSpacing(20);
 
-        // Title
+        
         HBox header = new HBox();
         header.setAlignment(Pos.CENTER_LEFT);
         header.setSpacing(20);
@@ -45,7 +45,7 @@ public class CompleteOrderListPage extends VBox {
         HBox.setHgrow(spacer, Priority.ALWAYS);
         header.getChildren().addAll(title, spacer);
 
-        // Create table columns
+        
         TableColumn<Order, String> idCol = new TableColumn<>("شماره سفارش");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         idCol.setPrefWidth(120);
@@ -66,7 +66,7 @@ public class CompleteOrderListPage extends VBox {
         );
         itemsCol.setPrefWidth(100);
 
-        // Status column
+        
         TableColumn<Order, String> statusCol = new TableColumn<>("وضعیت");
         statusCol.setCellValueFactory(cellData -> {
             String status = cellData.getValue().statusToPersian();
@@ -74,7 +74,7 @@ public class CompleteOrderListPage extends VBox {
         });
         statusCol.setPrefWidth(150);
 
-        // Delivery person column
+        
         TableColumn<Order, String> deliveryCol = new TableColumn<>("پیک");
         deliveryCol.setCellValueFactory(cellData -> {
             String deliveryName = cellData.getValue().getDeliveryName();
@@ -84,7 +84,7 @@ public class CompleteOrderListPage extends VBox {
         });
         deliveryCol.setPrefWidth(150);
 
-        // Actions column (only view button)
+        
         TableColumn<Order, Void> actionsCol = new TableColumn<>("عملیات");
         actionsCol.setPrefWidth(100);
         actionsCol.setCellFactory(new Callback<>() {
@@ -94,7 +94,7 @@ public class CompleteOrderListPage extends VBox {
                     private final Button viewBtn = new Button("مشاهده");
 
                     {
-//                        viewBtn.setButtonColors("#2196F3", "#FFFFFF", "#2196F3");
+
                         viewBtn.setOnAction(event -> {
                             Order order = getTableView().getItems().get(getIndex());
                             showOrderDetails(order);

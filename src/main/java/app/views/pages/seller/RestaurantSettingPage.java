@@ -26,7 +26,7 @@ public class RestaurantSettingPage extends VBox {
     public RestaurantSettingPage() {
         Restaurant current = StateManager.getInstance().restaurantState.getCurrentRestaurant();
 
-        // Create empty restaurant if null (shouldn't happen for sellers)
+        
         if (current == null) {
             User currentUser = StateManager.getInstance().userState.getCurrentUser();
             current = new Restaurant(
@@ -49,34 +49,34 @@ public class RestaurantSettingPage extends VBox {
     }
 
     private void initializeUI() {
-        // Main container setup
+        
         setPadding(new Insets(30));
         setSpacing(25);
         getStyleClass().add("restaurant-setting-page");
 
-        // Title
+        
         Label title = new Typography("تنظیمات رستوران", Typography.Variant.H1);
         title.getStyleClass().add("page-title");
 
-        // Logo section
+        
         VBox logoSection = createLogoSection();
 
-        // Form section
+        
         GridPane formGrid = createFormGrid();
 
-        // Update button
+        
         ButtonComponent updateButton = new ButtonComponent("ذخیره تغییرات", ButtonComponent.Variation.CONTAINED);
         updateButton.getStyleClass().add("update-button");
         updateButton.setOnAction(e -> validateAndUpdate());
         HBox buttonContainer = new HBox(updateButton);
         buttonContainer.setAlignment(Pos.CENTER_LEFT);
 
-        // Assemble layout
+        
         getChildren().addAll(title, logoSection, formGrid, buttonContainer);
     }
 
     private VBox createLogoSection() {
-        // Safe default image loading
+        
         Image defaultImage = loadDefaultLogo();
         logoImageView.setImage(defaultImage);
         logoImageView.setFitHeight(200);
@@ -84,14 +84,14 @@ public class RestaurantSettingPage extends VBox {
         logoImageView.setPreserveRatio(true);
         logoImageView.getStyleClass().add("restaurant-logo");
 
-        // Image upload controls
+        
         ButtonComponent uploadButton = new ButtonComponent("تغییر لوگو", ButtonComponent.Variation.TEXT);
         ButtonComponent removeButton = new ButtonComponent("حذف لوگو", ButtonComponent.Variation.TEXT);
         removeButton.getStyleClass().add("remove-logo-button");
         HBox buttonBox = new HBox(15, uploadButton, removeButton);
         buttonBox.setAlignment(Pos.CENTER);
 
-        // Event handlers
+        
         uploadButton.setOnAction(e -> handleLogoUpload());
         removeButton.setOnAction(e -> {
             logoImageView.setImage(defaultImage);
@@ -124,17 +124,17 @@ public class RestaurantSettingPage extends VBox {
         grid.setVgap(15);
         grid.getStyleClass().add("restaurant-form");
 
-        // Add column constraints for proper expansion
+        
         ColumnConstraints labelColumn = new ColumnConstraints();
-        labelColumn.setHgrow(Priority.NEVER);  // Labels don't expand
+        labelColumn.setHgrow(Priority.NEVER);  
 
         ColumnConstraints fieldColumn = new ColumnConstraints();
-        fieldColumn.setHgrow(Priority.ALWAYS);  // Input fields expand
-        fieldColumn.setFillWidth(true);          // Critical for TextArea
+        fieldColumn.setHgrow(Priority.ALWAYS);  
+        fieldColumn.setFillWidth(true);          
 
         grid.getColumnConstraints().addAll(labelColumn, fieldColumn);
 
-        // Form labels and fields
+        
         String[] labels = {
                 "نام رستوران:",
                 "توضیحات:",
@@ -143,10 +143,10 @@ public class RestaurantSettingPage extends VBox {
                 "ساعت کاری:"
         };
 
-        // Add form rows
+        
         int rowIndex = 0;
 
-        // Name field
+        
         Label nameLabel = new Label(labels[0]);
         nameLabel.getStyleClass().add("form-label");
         grid.add(nameLabel, 0, rowIndex);
@@ -155,23 +155,23 @@ public class RestaurantSettingPage extends VBox {
         nameField.setPromptText("*");
         rowIndex++;
 
-        // Description field - Fixed
+        
         VBox textAreaContainer = new VBox(descriptionField);
         textAreaContainer.setAlignment(Pos.CENTER_LEFT);
         textAreaContainer.setFillWidth(true);
         textAreaContainer.setMaxWidth(Double.MAX_VALUE);
 
-        // Configure text area
+        
         descriptionField.setWrapText(true);
         descriptionField.setPrefRowCount(3);
         descriptionField.setMinHeight(100);
         descriptionField.setMaxWidth(Double.MAX_VALUE);
 
-        // Add container instead of text area directly
+        
         grid.add(textAreaContainer, 1, rowIndex);
         rowIndex++;
 
-        // Address field
+        
         Label addressLabel = new Label(labels[2]);
         addressLabel.getStyleClass().add("form-label");
         grid.add(addressLabel, 0, rowIndex);
@@ -180,7 +180,7 @@ public class RestaurantSettingPage extends VBox {
         addressField.setPromptText("*");
         rowIndex++;
 
-        // Phone field
+        
         Label phoneLabel = new Label(labels[3]);
         phoneLabel.getStyleClass().add("form-label");
         grid.add(phoneLabel, 0, rowIndex);
@@ -189,7 +189,7 @@ public class RestaurantSettingPage extends VBox {
         phoneField.setPromptText("*");
         rowIndex++;
 
-        // Work time field
+        
         Label workTimeLabel = new Label(labels[4]);
         workTimeLabel.getStyleClass().add("form-label");
         grid.add(workTimeLabel, 0, rowIndex);
@@ -208,7 +208,7 @@ public class RestaurantSettingPage extends VBox {
             phoneField.setText(currentRestaurant.getPhone());
             workTimeField.setText(currentRestaurant.getWorkTime());
 
-            // Load logo if exists
+            
             if (currentRestaurant.getLogo() != null && !currentRestaurant.getLogo().isEmpty()) {
                 try {
                     logoImageView.setImage(new Image(currentRestaurant.getLogo()));
@@ -220,7 +220,7 @@ public class RestaurantSettingPage extends VBox {
     }
 
     private void validateAndUpdate() {
-        // Validation checks
+        
         if (nameField.getText().isBlank()) {
             showAlert("خطا در فرم", "نام رستوران الزامی است", Alert.AlertType.ERROR);
             return;
@@ -238,7 +238,7 @@ public class RestaurantSettingPage extends VBox {
             return;
         }
 
-        // Update restaurant object
+        
         currentRestaurant.setName(nameField.getText().trim());
         currentRestaurant.setDescription(descriptionField.getText().trim());
         currentRestaurant.setAddress(addressField.getText().trim());
@@ -250,7 +250,7 @@ public class RestaurantSettingPage extends VBox {
     }
 
     private void handleLogoUpload() {
-        // Logo upload simulation
+        
         Alert info = new Alert(Alert.AlertType.INFORMATION);
         info.setTitle("آپلود لوگو");
         info.setHeaderText("لوگو تغییر کرد");

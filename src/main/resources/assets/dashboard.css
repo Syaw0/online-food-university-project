@@ -437,4 +437,104 @@
     -fx-text-fill: #2196F3;
 }
 
-/*--------------------------------------------------O--------------------------------------------------*/
+/*--------------------------------------------------RESTAURANT LIST PAGE(BUYER)--------------------------------------------------*/
+/* Restaurant Card Styling */
+.card-component {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+.card-component:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+/* Filter Components */
+.filter-component {
+    -fx-padding: 10px;
+}
+
+/* General Page Styling */
+.restaurant-list-page {
+    -fx-background-color: #f7f7f7;
+}
+
+.card-description {
+    -fx-wrap-text: true;
+    -fx-max-width: 200px;
+}
+
+.card-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.card-rating {
+    -fx-text-fill: #FFD700;
+    -fx-font-weight: bold;
+}
+
+.card-description {
+    -fx-wrap-text: true;
+    -fx-max-width: 200px;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+
+.action-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+}
+
+.action-button:hover {
+    -fx-background-color: #3d9140;
+}
+
+.card-description {
+    -fx-wrap-text: true;
+    -fx-max-width: 200px;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-text-alignment: right; /* For RTL */
+}
+
+
+/*--------------------------------------------------RESTAURANT DETAIL PAGE(BUYER)--------------------------------------------------*/
+
+.restaurant-image {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+.restaurant-name {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: right;
+    -fx-padding: 10px 0;
+}
+
+.restaurant-rating {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: right;
+    -fx-padding: 5px 0;
+}
+
+.restaurant-description {
+    -fx-font-size: 16px;
+    -fx-wrap-text: true;
+    -fx-text-alignment: right;
+    -fx-padding: 10px 0;
+    -fx-max-width: 600px;
+}
+
+.food-section-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: right;
+    -fx-padding: 10px 0;
+}

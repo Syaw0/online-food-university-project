@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class LogoComponent extends HBox {
     public LogoComponent() {
-        this(60); // Default size 60x60 if not provided
+        this(60); 
     }
 
     public LogoComponent(double size) {
@@ -20,7 +20,7 @@ public class LogoComponent extends HBox {
             ImageView logo = new ImageView(new Image(logoUrl.toExternalForm()));
             logo.setFitHeight(size);
             logo.setFitWidth(size);
-            logo.setPreserveRatio(false); // Use square sizing
+            logo.setPreserveRatio(false); 
             getChildren().addAll(logo, appName);
         } else {
             getChildren().add(appName);

@@ -12,7 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType; // ADDED
+import javafx.scene.control.Alert.AlertType; 
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -35,7 +35,7 @@ public class InProgressOrderListPage extends VBox {
         setPadding(new Insets(20));
         setSpacing(20);
 
-        // Title
+        
         HBox header = new HBox();
         header.setAlignment(Pos.CENTER_LEFT);
         header.setSpacing(20);
@@ -45,7 +45,7 @@ public class InProgressOrderListPage extends VBox {
         HBox.setHgrow(spacer, Priority.ALWAYS);
         header.getChildren().addAll(title, spacer);
 
-        // Create table columns
+        
         TableColumn<Order, String> idCol = new TableColumn<>("شماره سفارش");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         idCol.setPrefWidth(120);
@@ -66,7 +66,7 @@ public class InProgressOrderListPage extends VBox {
         );
         itemsCol.setPrefWidth(100);
 
-        // Status column
+        
         TableColumn<Order, String> statusCol = new TableColumn<>("وضعیت");
         statusCol.setCellValueFactory(cellData -> {
             String status = cellData.getValue().statusToPersian();
@@ -74,7 +74,7 @@ public class InProgressOrderListPage extends VBox {
         });
         statusCol.setPrefWidth(150);
 
-        // Delivery person column
+        
         TableColumn<Order, String> deliveryCol = new TableColumn<>("پیک");
         deliveryCol.setCellValueFactory(cellData -> {
             String deliveryName = cellData.getValue().getDeliveryName();
@@ -84,7 +84,7 @@ public class InProgressOrderListPage extends VBox {
         });
         deliveryCol.setPrefWidth(150);
 
-        // Actions column
+        
         TableColumn<Order, Void> actionsCol = new TableColumn<>("عملیات");
         actionsCol.setPrefWidth(300);
         actionsCol.setCellFactory(new Callback<>() {
@@ -98,9 +98,9 @@ public class InProgressOrderListPage extends VBox {
 
                     {
                         container.setAlignment(Pos.CENTER);
-//                        viewBtn.setButtonColors("#2196F3", "#FFFFFF", "#2196F3");
-//                        statusBtn.setButtonColors("#4CAF50", "#FFFFFF", "#4CAF50");
-//                        assignBtn.setButtonColors("#FF9800", "#FFFFFF", "#FF9800");
+
+
+
 
                         viewBtn.setOnAction(event -> {
                             Order order = getTableView().getItems().get(getIndex());
@@ -132,7 +132,7 @@ public class InProgressOrderListPage extends VBox {
                                 Order order = orderData.get(index);
                                 Status status = order.getStatus();
 
-                                // Show status button for allowed statuses
+                                
                                 if (status == Status.ACCEPTED_BY_SELLER || status == Status.PREPARING) {
                                     container.getChildren().add(statusBtn);
 
@@ -141,13 +141,13 @@ public class InProgressOrderListPage extends VBox {
                                         statusBtn.setDisable(false);
                                     } else if (status == Status.PREPARING) {
                                         statusBtn.setText("تحویل به پیک");
-                                        // Disable if no delivery assigned
+                                        
                                         boolean noDelivery = order.getDeliveryName() == null || order.getDeliveryName().isEmpty();
                                         statusBtn.setDisable(noDelivery);
                                     }
                                 }
 
-                                // Show delivery assignment button if needed
+                                
                                 if (order.getDeliveryName() == null || order.getDeliveryName().isEmpty()) {
                                     container.getChildren().add(assignBtn);
                                 }
@@ -185,7 +185,7 @@ public class InProgressOrderListPage extends VBox {
             orderRepo.updateOrder(order);
             table.refresh();
         } else if (currentStatus == Status.PREPARING) {
-            // Check if delivery is assigned
+            
             if (order.getDeliveryName() == null || order.getDeliveryName().isEmpty()) {
                 showAlert("خطا در تغییر وضعیت", "برای تحویل سفارش به پیک، ابتدا پیک را تخصیص دهید");
                 return;
@@ -208,7 +208,7 @@ public class InProgressOrderListPage extends VBox {
         });
     }
 
-    // ADDED: Alert helper method
+    
     private void showAlert(String title, String message) {
         Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle(title);

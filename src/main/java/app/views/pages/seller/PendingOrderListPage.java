@@ -32,7 +32,7 @@ public class PendingOrderListPage extends VBox {
         setPadding(new Insets(20));
         setSpacing(20);
 
-        // Title
+        
         HBox header = new HBox();
         header.setAlignment(Pos.CENTER_LEFT);
         header.setSpacing(20);
@@ -44,7 +44,7 @@ public class PendingOrderListPage extends VBox {
 
         header.getChildren().addAll(title, spacer);
 
-        // Create table columns
+        
         TableColumn<Order, String> idCol = new TableColumn<>("شماره سفارش");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         idCol.setPrefWidth(120);
@@ -65,9 +65,9 @@ public class PendingOrderListPage extends VBox {
         );
         itemsCol.setPrefWidth(100);
 
-        // Actions column with buttons
+        
         TableColumn<Order, Void> actionsCol = new TableColumn<>("عملیات");
-        actionsCol.setPrefWidth(250); // Increased width for 3 buttons
+        actionsCol.setPrefWidth(250); 
         actionsCol.setCellFactory(new Callback<>() {
             @Override
             public TableCell<Order, Void> call(TableColumn<Order, Void> param) {
@@ -80,7 +80,7 @@ public class PendingOrderListPage extends VBox {
                     {
                         container.setAlignment(Pos.CENTER);
 
-                        // Set button colors
+                        
                         acceptBtn.setButtonColors("#4CAF50", "#FFFFFF", "#4CAF50");
                         rejectBtn.setButtonColors("#F44336", "#FFFFFF", "#F44336");
                         viewBtn.setButtonColors("#2196F3", "#FFFFFF", "#2196F3");
@@ -115,18 +115,18 @@ public class PendingOrderListPage extends VBox {
         });
 
 
-        // Add columns to table
+        
         table.getColumns().addAll(idCol, nameCol, phoneCol, itemsCol, actionsCol);
         table.setItems(orderData);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        // Load initial data
+        
         refreshTable();
 
         getChildren().addAll(header, table);
     }
 
-    // Add this method to show order details
+    
     private void showOrderDetails(Order order) {
         OrderDetailDialog dialog = new OrderDetailDialog(order);
         dialog.showAndWait();

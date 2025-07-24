@@ -21,12 +21,12 @@ public class OrderDetailDialog extends Dialog<Void> {
 
         getDialogPane().getStyleClass().add("order-detail-dialog");
 
-        // Create content container
+        
         VBox content = new VBox(20);
         content.setPadding(new Insets(20));
         content.getStyleClass().add("dialog-content");
 
-        // Order info section
+        
         GridPane orderInfo = new GridPane();
         orderInfo.getStyleClass().add("order-info");
         orderInfo.setHgap(15);
@@ -43,7 +43,7 @@ public class OrderDetailDialog extends Dialog<Void> {
         orderInfo.add(createLabel("وضعیت:"), 0, 4);
         orderInfo.add(createStatusLabel(order.getStatus().toString()), 1, 4);
 
-        // Food items section
+        
         Label itemsHeader = new Label("آیتم‌های سفارش");
         itemsHeader.getStyleClass().add("items-header");
 
@@ -62,7 +62,7 @@ public class OrderDetailDialog extends Dialog<Void> {
 
         getDialogPane().setContent(content);
 
-        // Add close button
+        
         ButtonType closeButton = new ButtonType("بستن", ButtonBar.ButtonData.CANCEL_CLOSE);
         getDialogPane().getButtonTypes().add(closeButton);
     }
@@ -82,7 +82,7 @@ public class OrderDetailDialog extends Dialog<Void> {
     private Label createStatusLabel(String status) {
         Label label = new Label(toPersianStatus(status));
         label.getStyleClass().add("status-label");
-        // Add color based on status
+        
         if (status.equals("PENDING")) {
             label.getStyleClass().add("status-pending");
         } else if (status.equals("ACCEPTED_BY_SELLER")) {
@@ -110,7 +110,7 @@ public class OrderDetailDialog extends Dialog<Void> {
         HBox card = new HBox(15);
         card.getStyleClass().add("food-item-card");
 
-        // Food image with fallback
+        
         ImageView image = new ImageView();
         try {
             if (item.getFood().getImage() != null && !item.getFood().getImage().isEmpty()) {
@@ -126,7 +126,7 @@ public class OrderDetailDialog extends Dialog<Void> {
         image.setPreserveRatio(true);
         image.getStyleClass().add("food-image");
 
-        // Food details
+        
         VBox details = new VBox(5);
         details.getStyleClass().add("food-details");
 

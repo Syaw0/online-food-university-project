@@ -35,7 +35,7 @@ public class FoodListPage extends VBox {
         setPadding(new Insets(20));
         setSpacing(20);
 
-        // Title and add button
+        
         HBox header = new HBox();
         header.setAlignment(Pos.CENTER_LEFT);
         header.setSpacing(20);
@@ -49,7 +49,7 @@ public class FoodListPage extends VBox {
 
         header.getChildren().addAll(title,spacer, addButton);
 
-        // Create table columns
+        
         TableColumn<Food, String> nameCol = new TableColumn<>("نام");
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         nameCol.setPrefWidth(120);
@@ -104,19 +104,19 @@ public class FoodListPage extends VBox {
         });
         actionsCol.setPrefWidth(200);
 
-        // Add columns to table
+        
         table.getColumns().addAll(nameCol, descCol, priceCol, stockCol, actionsCol);
         table.setItems(foodData);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        // Load initial data
+        
         refreshTable();
 
         getChildren().addAll(header, table);
     }
 
     private void showFoodDetail(Food food) {
-        FoodDetailDialog dialog = new FoodDetailDialog(food);
+        FoodDetailDialog dialog = new FoodDetailDialog(food,false);
         dialog.showAndWait();
     }
 
@@ -126,11 +126,11 @@ public class FoodListPage extends VBox {
 
         result.ifPresent(updatedFood -> {
             if (food == null) {
-                // Add new food
+                
                 foodRepo.addFood(updatedFood);
                 showSuccessAlert("غذای جدید با موفقیت اضافه شد");
             } else {
-                // Update existing food
+                
                 foodRepo.updateFood(updatedFood);
                 showSuccessAlert("اطلاعات غذا با موفقیت به‌روزرسانی شد");
             }

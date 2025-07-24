@@ -30,26 +30,26 @@ public abstract class BaseNav {
         navbar.getStyleClass().add("dashboard-navbar");
         navbar.setPadding(new Insets(25, 15, 25, 15));
 
-        // Logo Section
+        
         Label logo = new Label("Aut App");
         logo.getStyleClass().add("nav-logo");
         logo.setPadding(new Insets(0, 0, 30, 0));
 
-        // Navigation Items Container
+        
         VBox navItems = new VBox(8);
         navItems.getStyleClass().add("nav-items-container");
         navItems.setPadding(new Insets(10, 0, 0, 0));
 
-        // Add specific nav items
+        
         VBox userSpecificNav = getUserSpecificNavItems(user);
         navItems.getChildren().addAll(userSpecificNav);
 
-        // Spacer to push user info to bottom
+        
         Region spacer = new Region();
         spacer.getStyleClass().add("nav-spacer");
         VBox.setVgrow(spacer, Priority.ALWAYS);
 
-        // User Info Section
+        
         VBox userInfo = new VBox(5);
         userInfo.getStyleClass().add("user-info-panel");
         userInfo.setPadding(new Insets(20, 5, 5, 5));

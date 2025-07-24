@@ -4,6 +4,7 @@ import app.models.*;
 import app.states.StateManager;
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
+import app.views.pages.buyer.RestaurantListPage;
 import app.views.pages.seller.*;
 import app.views.pages.shared.ProfilePage;
 import javafx.beans.binding.Bindings;
@@ -18,6 +19,17 @@ public class Main {
     private VBox mainContent;
     private ScrollPane scrollContainer;
     private User currentUser;
+
+    private static Main instance;
+
+    public static Main getInstance() {
+        if (instance == null) {
+            instance = new Main();
+        }
+        return instance;
+    }
+
+
 
     public VBox getView(User user) {
         this.currentUser = user;
@@ -70,6 +82,10 @@ public class Main {
 
 //            ======= BUYER =======
 
+            case "buyer_restaurant_list":
+                scrollContainer.setContent(new RestaurantListPage());
+                break;
+
 //            ======= SELLER =======
             case "seller_restaurant_setting":
                 scrollContainer.setContent(new RestaurantSettingPage());
@@ -103,6 +119,10 @@ public class Main {
             default:
                 scrollContainer.setContent(createDashboardContent(currentUser));
         }
+    }
+
+    public void setContent(VBox content){
+        scrollContainer.setContent(content);
     }
 
     // IMPLEMENTED: Create dashboard content
@@ -189,7 +209,7 @@ public class Main {
         return content;
     }
 
-    private VBox createDeliveryActiveView() {
+    public VBox createDeliveryActiveView() {
         VBox content = new VBox(10);
         content.getStyleClass().add("content-area");
         content.setPadding(new Insets(20));

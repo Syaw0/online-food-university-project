@@ -27,13 +27,13 @@ public class FoodDialog extends Dialog<Food> {
     public FoodDialog(Food food, String restaurantId) {
         setTitle(food == null ? "افزودن غذا" : "ویرایش غذا");
 
-        // Initialize controls
+        
         foodImageView.setFitHeight(150);
         foodImageView.setFitWidth(150);
         foodImageView.setPreserveRatio(true);
         categoryCombo.getItems().addAll("غذای اصلی", "پیش غذا", "دسر", "نوشیدنی");
 
-        // Set initial values
+        
         if (food != null) {
             nameField.setText(food.getName());
             descriptionField.setText(food.getDescription());
@@ -42,7 +42,7 @@ public class FoodDialog extends Dialog<Food> {
             categoryCombo.getSelectionModel().select(food.getCategoryId());
         }
 
-        // Create form grid
+        
         GridPane grid = new GridPane();
         grid.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         grid.setHgap(10);
@@ -63,7 +63,7 @@ public class FoodDialog extends Dialog<Food> {
         VBox imageBox = new VBox(10, foodImageView, uploadButton);
         grid.add(imageBox, 1, 5);
 
-        // Upload button action
+        
         uploadButton.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(
@@ -75,15 +75,15 @@ public class FoodDialog extends Dialog<Food> {
             }
         });
 
-        // Button setup
+        
         ButtonType saveButtonType = new ButtonType("ذخیره", ButtonBar.ButtonData.OK_DONE);
         getDialogPane().getButtonTypes().addAll(saveButtonType, ButtonType.CANCEL);
 
-        // Validation
+        
         Node saveButton = getDialogPane().lookupButton(saveButtonType);
         saveButton.setDisable(true);
 
-        // Validation logic
+        
         nameField.textProperty().addListener((obs, oldVal, newVal) -> validateFields(saveButton));
         priceField.textProperty().addListener((obs, oldVal, newVal) -> validateFields(saveButton));
         stockField.textProperty().addListener((obs, oldVal, newVal) -> validateFields(saveButton));
@@ -91,7 +91,7 @@ public class FoodDialog extends Dialog<Food> {
 
         getDialogPane().setContent(grid);
 
-        // Convert result to Food object
+        
         setResultConverter(buttonType -> {
             if (buttonType == saveButtonType) {
                 return new Food(

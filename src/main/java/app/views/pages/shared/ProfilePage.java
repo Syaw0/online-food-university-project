@@ -33,47 +33,47 @@ public class ProfilePage extends VBox {
     }
 
     private void initializeUI() {
-        // Main container setup
+        
         setPadding(new Insets(20));
         setSpacing(20);
         setStyle("-fx-background-color: #f5f7fa;");
 
-        // Title
+        
         Label title = new Typography("پروفایل کاربر", Typography.Variant.H1);
 
-        // Profile image section
+        
         VBox imageSection = createImageSection();
 
-        // Form section
+        
         GridPane formGrid = createFormGrid();
 
-        // Update button
+        
         Button updateButton = new ButtonComponent("آپدیت پروفایل", ButtonComponent.Variation.CONTAINED);
         updateButton.setOnAction(e -> validateAndUpdate());
         updateButton.setMaxWidth(Double.MAX_VALUE);
         HBox buttonContainer = new HBox(updateButton);
         buttonContainer.setAlignment(Pos.CENTER_LEFT);
 
-        // Assemble layout
+        
         getChildren().addAll(title, imageSection, formGrid, buttonContainer);
     }
 
     private VBox createImageSection() {
-        // Safe default image loading
+        
         Image defaultImage = loadDefaultImage();
         profileImageView.setImage(defaultImage);
         profileImageView.setFitHeight(300);
         profileImageView.setFitWidth(300);
         profileImageView.setPreserveRatio(true);
 
-        // Image upload controls
+        
         Button uploadButton = new ButtonComponent("تغییر عکس پروفایل", ButtonComponent.Variation.TEXT);
         Button removeButton = new ButtonComponent("حذف", ButtonComponent.Variation.TEXT);
         removeButton.setStyle("-fx-color: #f5f7fa;");
         HBox buttonBox = new HBox(10, uploadButton, removeButton);
         buttonBox.setAlignment(Pos.CENTER);
 
-        // Event handlers
+        
         uploadButton.setOnAction(e -> handleImageUpload());
         removeButton.setOnAction(e -> {
             profileImageView.setImage(defaultImage);
@@ -98,7 +98,7 @@ public class ProfilePage extends VBox {
             System.err.println("Error loading default image: " + e.getMessage());
         }
 
-        // Fallback to minimal transparent image
+        
         return new Image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
     }
 
@@ -109,11 +109,11 @@ public class ProfilePage extends VBox {
         grid.setPadding(new Insets(15));
         grid.setStyle("-fx-background-color: white; -fx-border-radius: 5; -fx-background-radius: 5;");
 
-        // Form labels and fields
+        
         String[] labels = {"نام ونام خانوادگی :", "شماره تماس :", "ایمیل :", "پسورد :", "شماره حساب بانکی :"};
         TextField[] fields = {nameField, phoneField, emailField, passwordField, bankAccountField};
 
-        // Add form rows
+        
         for (int i = 0; i < labels.length; i++) {
             Label label = new Label(labels[i]);
             label.setStyle("-fx-font-weight: bold;");
@@ -121,7 +121,7 @@ public class ProfilePage extends VBox {
             grid.add(fields[i], 1, i);
         }
 
-        // Add address field conditionally
+        
         int rowIndex = labels.length;
         if (shouldShowAddress()) {
             Label addressLabel = new Label("آدرس :");
@@ -132,7 +132,7 @@ public class ProfilePage extends VBox {
             rowIndex++;
         }
 
-        // Setup required fields
+        
         nameField.setPromptText("*");
         phoneField.setPromptText("*");
         passwordField.setPromptText("*");
@@ -156,7 +156,7 @@ public class ProfilePage extends VBox {
             addressField.setText(currentUser.getAddress());
         }
 
-        // Load profile image if exists
+        
         if (currentUser.getProfile() != null && !currentUser.getProfile().isEmpty()) {
             try {
                 profileImageView.setImage(new Image(currentUser.getProfile()));
@@ -167,7 +167,7 @@ public class ProfilePage extends VBox {
     }
 
     private void validateAndUpdate() {
-        // Validation checks for required fields
+        
         if (nameField.getText().isBlank()) {
             showAlert("ایراد در تایید فرم","نام و نام خانوادگی نباید خالی باشد!", Alert.AlertType.ERROR);
             return;
@@ -181,25 +181,25 @@ public class ProfilePage extends VBox {
             return;
         }
 
-        // Address validation only for eligible users
+        
         if (shouldShowAddress() && addressField.getText().isBlank()) {
             showAlert("ایراد در تایید فرم","آدرس خود را وارد کنید", Alert.AlertType.ERROR);
             return;
         }
 
-        // Update user object
+        
         currentUser.setFullName(nameField.getText().trim());
         currentUser.setPhone(phoneField.getText().trim());
         currentUser.setEmail(emailField.getText().trim());
         currentUser.setPassword(passwordField.getText().trim());
         currentUser.setBankAccountNumber(bankAccountField.getText().trim());
 
-        // Only update address if it's visible
+        
         if (shouldShowAddress()) {
             currentUser.setAddress(addressField.getText().trim());
         }
 
-        // Update profile image (handled separately)
+        
         if (profileImageView.getImage() != null) {
             currentUser.setProfile("user-profile.jpg");
         }
@@ -208,7 +208,7 @@ public class ProfilePage extends VBox {
     }
 
     private void handleImageUpload() {
-        // Image upload simulation
+        
         Alert info = new Alert(Alert.AlertType.INFORMATION);
         info.setTitle("آپلود عکس پروفایل");
         info.setHeaderText("عکس پروفایل آپدیت شد");
