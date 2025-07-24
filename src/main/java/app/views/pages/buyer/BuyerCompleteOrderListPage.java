@@ -28,7 +28,6 @@ public class BuyerCompleteOrderListPage extends VBox {
     private final ObservableList<Order> orderData = FXCollections.observableArrayList();
     private final OrderRepo orderRepo = new OrderRepo();
     private final Map<String, String> fakeRestaurantNames = new HashMap<>();
-    private final Map<String, String> fakeAddresses = new HashMap<>();
 
     public BuyerCompleteOrderListPage() {
         initializeFakeRestaurantNames();

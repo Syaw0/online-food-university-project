@@ -12,6 +12,7 @@ public class Order {
         PENDING,
         ACCEPTED_BY_SELLER,
         PREPARING,
+        READY_TO_DELIVERY,
         RECEIVED_BY_DELIVERY,
         DELIVERED_TO_CUSTOMER,
         REJECTED_BY_SELLER
@@ -92,6 +93,7 @@ public class Order {
             case REJECTED_BY_SELLER -> "رد شده توسط رستوران";
             case RECEIVED_BY_DELIVERY -> "توسط پیک دریافت شد";
             case DELIVERED_TO_CUSTOMER -> "تحویل به مشتری";
+            case READY_TO_DELIVERY -> "آماده تحویل به پیک";
         };
     }
 

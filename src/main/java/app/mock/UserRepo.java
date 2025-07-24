@@ -20,7 +20,7 @@ public class UserRepo {
     private void initializeFakeData() {
 
 
-        // Fake addresses
+        
         fakeAddresses.addAll(Arrays.asList(
                 "تهران، خیابان آزادی، کوچه گلستان، پلاک ۱۲",
                 "اصفهان، خیابان ولیعصر، مجتمع ولیعصر، طبقه ۳",
@@ -69,7 +69,7 @@ public class UserRepo {
                 "2",
                 "پیک موتوری",
                 "09129876543",
-                "deliveryPass",
+                "123",
                 null,
                 "delivery@example.com",
                 UserType.DELIVERY,

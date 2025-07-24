@@ -9,12 +9,9 @@ public class DeliveryNav extends BaseNav {
     protected VBox getUserSpecificNavItems(User user) {
         VBox navItems = new VBox(5);
         navItems.getChildren().addAll(
-                createNavButton("Dashboard", "buyer-dashboard"),
-                createNavButton("Products", "buyer-products"),
-                createNavButton("Orders", "buyer-orders"),
-                createNavButton("Cart", "buyer-cart"),
-                createNavButton("Favorites", "buyer-favorites"),
-                createNavButton("Profile", "profile")
+                createNavButton("لیست سفارشات در حال جریان", "delivery_in_progress_order_list"),
+                createNavButton("لیست سفارشات تکمیل شده", "delivery_complete_order_list"),
+                createNavButton("پروفایل کاربری", "profile")
         );
         return navItems;
     }

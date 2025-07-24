@@ -8,6 +8,8 @@ import app.views.pages.buyer.BuyerCompleteOrderListPage;
 import app.views.pages.buyer.BuyerInProgressOrderListPage;
 import app.views.pages.buyer.CartPage;
 import app.views.pages.buyer.RestaurantListPage;
+import app.views.pages.delivery.DeliveryCompleteOrderListPage;
+import app.views.pages.delivery.DeliveryProgressOrderListPage;
 import app.views.pages.seller.*;
 import app.views.pages.shared.ProfilePage;
 import javafx.beans.binding.Bindings;
@@ -127,11 +129,11 @@ public class Main {
                 break;
 
 //            ======= DELIVERY =======
-            case "delivery_dashboard":
-                scrollContainer.setContent(createDashboardContent(currentUser));
+            case "delivery_in_progress_order_list":
+                scrollContainer.setContent(new DeliveryProgressOrderListPage());
                 break;
-            case "delivery_active":
-                scrollContainer.setContent(createDeliveryActiveView());
+            case "delivery_complete_order_list":
+                scrollContainer.setContent(new DeliveryCompleteOrderListPage());
                 break;
             default:
                 scrollContainer.setContent(createDashboardContent(currentUser));

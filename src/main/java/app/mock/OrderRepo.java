@@ -14,7 +14,7 @@ public class OrderRepo {
             "محمد حسینی", "نازیلا کمالی", "امیررضا اکبری", "مریم رضایی",
             "حسن قربانی", "لیلا موسوی"
     };
-    private final String[] deliveryPersons = {"پیک موتوری حسین خلیلی", "پیک موتوری عباس پورشفق", "پیک موتوری حسن علی قاسمی"}; // ADDED
+    private final String[] deliveryPersons = {"پیک موتوری حسین خلیلی", "پیک موتوری عباس پورشفق", "پیک موتوری حسن علی قاسمی"}; 
 
     private final String[] customerPhones = {
             "09121234567", "09129876543", "09123456789", "09127778899",
@@ -30,32 +30,32 @@ public class OrderRepo {
     }
 
     private void initializeMockData() {
-        // Get all foods to use in orders
+        
         List<Food> allFoods = foodRepo.getAllFoods();
 
-        // Create 10 fake orders
+        
         for (int i = 1; i <= 10; i++) {
             String orderId = "ORD-" + i;
             String customerName = customerNames[i-1];
             String customerPhone = customerPhones[i-1];
 
-            // Create 1-3 random food items per order
+            
             List<Order.FoodItem> foodItems = new ArrayList<>();
-            int itemCount = random.nextInt(3) + 1; // 1-3 items
+            int itemCount = random.nextInt(3) + 1; 
             for (int j = 1; j <= itemCount; j++) {
-                // Pick a random food
+                
                 Food randomFood = allFoods.get(random.nextInt(allFoods.size()));
                 foodItems.add(new Order.FoodItem(
                         randomFood,
-                        random.nextInt(3) + 1 // Quantity 1-3
+                        random.nextInt(3) + 1 
                 ));
             }
 
-            // Vary statuses: 60% PENDING, 40% other statuses
+            
             Status status = random.nextDouble() < 0.6 ? Status.PENDING :
                     Status.values()[random.nextInt(Status.values().length - 1) + 1];
 
-            // AUTO-ASSIGN DELIVERY FOR SPECIFIC STATUSES
+            
             String deliveryName = null;
             if (status == Status.RECEIVED_BY_DELIVERY ||
                     status == Status.DELIVERED_TO_CUSTOMER) {
@@ -66,7 +66,7 @@ public class OrderRepo {
                     orderId,
                     customerName,
                     customerPhone,
-                    deliveryName, // Set delivery name
+                    deliveryName, 
                     status,
                     foodItems
             ));
@@ -96,6 +96,13 @@ public class OrderRepo {
                         order.getStatus() == Status.ACCEPTED_BY_SELLER ||
                                 order.getStatus() == Status.PREPARING ||
                                 order.getStatus() == Status.RECEIVED_BY_DELIVERY)
+                .toList();
+    }
+
+    public List<Order> getInProgressOrdersForDeliveryGuy() {
+        return orders.stream()
+                .filter(order ->
+                        order.getStatus() == Status.READY_TO_DELIVERY)
                 .toList();
     }
 
