@@ -48,6 +48,7 @@ public class ReceiptDialog extends Dialog<Void> {
         Label totalLabel = new Label(total + " تومان");
         totalLabel.setStyle("-fx-font-weight: bold; -fx-text-fill: #2e7d32;");
         summaryGrid.add(totalLabel, 1, 3);
+
         receiptContainer.getChildren().add(summaryGrid);
 
         

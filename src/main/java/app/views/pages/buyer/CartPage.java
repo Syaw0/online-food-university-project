@@ -1,6 +1,7 @@
 package app.views.pages.buyer;
 
 import app.mock.FoodRepo;
+import app.mock.UserRepo;
 import app.models.Food;
 import app.views.component.ReceiptDialog;
 import app.views.component.Typography;
@@ -19,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CartPage extends VBox {
+    private  final UserRepo userrepo = new UserRepo();
     private final Map<Food, Integer> cartItems = new HashMap<>();
     private final FoodRepo foodRepo = new FoodRepo();
     private final VBox itemsContainer = new VBox(10);
@@ -94,6 +96,9 @@ public class CartPage extends VBox {
 
         grid.add(createSummaryLabel("مبلغ قابل پرداخت:", true), 0, 4);
         grid.add(totalLabel, 1, 4);
+
+        grid.add(createSummaryLabel("آدرس ارسال:"),0,5);
+        grid.add(new Label(userrepo.giveFakeAddress()), 1, 5);
 
 
         Button submitButton = new Button("ثبت سفارش");

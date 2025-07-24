@@ -3,14 +3,41 @@ package app.mock;
 import app.models.User;
 import app.models.UserType;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class UserRepo {
     private  final List<User> users;
+    private final List<String> fakeAddresses = new ArrayList<>();
+    private final Random random = new Random();
 
     public UserRepo() {
         users = new ArrayList<>();
+        initializeFakeData();
         initializeMockData();
+    }
+    private void initializeFakeData() {
+
+
+        // Fake addresses
+        fakeAddresses.addAll(Arrays.asList(
+                "تهران، خیابان آزادی، کوچه گلستان، پلاک ۱۲",
+                "اصفهان، خیابان ولیعصر، مجتمع ولیعصر، طبقه ۳",
+                "مشهد، بلوار وکیل آباد، خیابان امامت، پلاک ۴۵",
+                "شیراز، خیابان ملاصدرا، کوچه ۲۰، پلاک ۸",
+                "تبریز، خیابان بهار، کوچه ۱۵، پلاک ۲",
+                "کرج، فلکه اول، بلوار موذن، پلاک ۷۲",
+                "رشت، میدان شهرداری، خیابان مطهری، ساختمان ۱۲",
+                "یزد، خیابان کاشانی، کوچه ۳۳، پلاک ۵",
+                "اهواز، کیانپارس، خیابان ۱۶ شرقی، پلاک ۲۱",
+                "قم، بلوار امین، مجتمع تجاری نگین، طبقه ۴"
+        ));
+    }
+
+    public String giveFakeAddress(){
+        int addressIndex = random.nextInt(fakeAddresses.size());
+        return fakeAddresses.get(addressIndex);
     }
 
     private void initializeMockData() {

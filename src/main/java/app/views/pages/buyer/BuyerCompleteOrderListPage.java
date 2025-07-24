@@ -28,6 +28,7 @@ public class BuyerCompleteOrderListPage extends VBox {
     private final ObservableList<Order> orderData = FXCollections.observableArrayList();
     private final OrderRepo orderRepo = new OrderRepo();
     private final Map<String, String> fakeRestaurantNames = new HashMap<>();
+    private final Map<String, String> fakeAddresses = new HashMap<>();
 
     public BuyerCompleteOrderListPage() {
         initializeFakeRestaurantNames();
@@ -42,6 +43,7 @@ public class BuyerCompleteOrderListPage extends VBox {
         fakeRestaurantNames.put("4", "رستوران طلایی");
         fakeRestaurantNames.put("5", "رستوران ستاره");
     }
+
 
     private void initializeUI() {
         setPadding(new Insets(20));
@@ -72,8 +74,7 @@ public class BuyerCompleteOrderListPage extends VBox {
                     setText(null);
                 } else {
                     Order order = getTableRow().getItem();
-                    
-                    String restaurantId = order.getId().charAt(0) + ""; 
+                    String restaurantId = order.getId().charAt(0) + "";
                     setText(fakeRestaurantNames.getOrDefault(restaurantId, "رستوران ناشناس"));
                 }
             }
