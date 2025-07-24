@@ -10,11 +10,12 @@ public class AdminNav extends BaseNav {
     protected VBox getUserSpecificNavItems(User user) {
         VBox navItems = new VBox(5);
         navItems.getChildren().addAll(
-                createNavButton("Dashboard", "buyer-dashboard"),
-                createNavButton("Products", "buyer-products"),
-                createNavButton("Orders", "buyer-orders"),
-                createNavButton("Cart", "buyer-cart"),
-                createNavButton("Favorites", "buyer-favorites"),
+                createNavButton("داشبورد", "admin_dashboard"),
+                createNavButton("لیست کاربران", "admin_user_list"),
+                createNavButton("لیست سفارشات در حال انجام", "admin_order_list"),
+                createNavButton("گزارش وضعیت فروش", "admin_sales_report"),
+                createNavButton("تیکت ها", "admin_tickets"),
+
                 createNavButton("Profile", "profile")
         );
         return navItems;

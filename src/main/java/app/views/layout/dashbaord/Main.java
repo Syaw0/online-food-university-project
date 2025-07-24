@@ -4,6 +4,7 @@ import app.models.*;
 import app.states.StateManager;
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
+import app.views.pages.admin.AdminUserListPage;
 import app.views.pages.buyer.BuyerCompleteOrderListPage;
 import app.views.pages.buyer.BuyerInProgressOrderListPage;
 import app.views.pages.buyer.CartPage;
@@ -124,8 +125,20 @@ public class Main {
                 break;
 
 //            ======= ADMIN =======
-            case "admin_users":
-                scrollContainer.setContent(createAdminUsersView());
+            case "admin_dashboard":
+                scrollContainer.setContent(createDashboardContent(currentUser));
+                break;
+            case "admin_user_list":
+                scrollContainer.setContent(new AdminUserListPage());
+                break;
+            case "admin_order_list":
+                scrollContainer.setContent(createDashboardContent(currentUser));
+                break;
+            case "admin_sales_report":
+                scrollContainer.setContent(createDashboardContent(currentUser));
+                break;
+            case "admin_tickets":
+                scrollContainer.setContent(createDashboardContent(currentUser));
                 break;
 
 //            ======= DELIVERY =======

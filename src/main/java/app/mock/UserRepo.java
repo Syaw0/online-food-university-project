@@ -45,7 +45,7 @@ public class UserRepo {
                 "0",
                 "سیاوش رضایی",
                 "09001234567",
-                "adminPass",
+                "123",
                 "",
                 "admin@example.com",
                 UserType.ADMIN,
