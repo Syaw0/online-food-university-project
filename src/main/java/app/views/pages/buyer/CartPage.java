@@ -30,7 +30,7 @@ public class CartPage extends VBox {
 
     public CartPage() {
         initializeUI();
-        loadMockCart(); 
+        loadMockCart();
     }
 
     private void initializeUI() {
@@ -38,23 +38,23 @@ public class CartPage extends VBox {
         setPadding(new Insets(20));
         setBackground(new Background(new BackgroundFill(Color.web("#f7f7f7"), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        
+
         Typography title = new Typography("سبد خرید", Typography.Variant.H1);
         HBox titleBox = new HBox(title);
         titleBox.setAlignment(Pos.CENTER);
 
-        
+
         VBox content = new VBox(30);
 
-        
+
         VBox summarySection = createSummarySection();
         content.getChildren().add(summarySection);
 
-        
+
         VBox itemsSection = createItemsSection();
         content.getChildren().add(itemsSection);
 
-        
+
         ScrollPane scrollPane = new ScrollPane(content);
         scrollPane.setFitToWidth(true);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -68,16 +68,16 @@ public class CartPage extends VBox {
         summarySection.setPadding(new Insets(20));
         summarySection.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), Insets.EMPTY)));
 
-        
+
         Typography sectionTitle = new Typography("خلاصه سفارش", Typography.Variant.H2);
 
-        
+
         GridPane grid = new GridPane();
         grid.setHgap(15);
         grid.setVgap(10);
         grid.setPadding(new Insets(10));
 
-        
+
         grid.add(createSummaryLabel("تعداد آیتم‌ها:"), 0, 0);
         grid.add(totalItemsLabel, 1, 0);
         grid.add(createSummaryLabel("مجموع قیمت:"), 0, 1);
@@ -87,15 +87,15 @@ public class CartPage extends VBox {
         grid.add(createSummaryLabel("هزینه ارسال:"), 0, 3);
         grid.add(deliveryLabel, 1, 3);
 
-        
+
         Separator separator = new Separator();
         separator.setPadding(new Insets(10, 0, 10, 0));
 
-        
+
         grid.add(createSummaryLabel("مبلغ قابل پرداخت:", true), 0, 4);
         grid.add(totalLabel, 1, 4);
 
-        
+
         Button submitButton = new Button("ثبت سفارش");
         submitButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20;");
         submitButton.setOnAction(e -> submitOrder());
@@ -111,13 +111,13 @@ public class CartPage extends VBox {
         itemsSection.setPadding(new Insets(20));
         itemsSection.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), Insets.EMPTY)));
 
-        
+
         Typography sectionTitle = new Typography("محصولات سبد خرید", Typography.Variant.H2);
 
-        
+
         itemsContainer.setPadding(new Insets(10));
 
-        
+
         ScrollPane scrollPane = new ScrollPane(itemsContainer);
         scrollPane.setFitToWidth(true);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -139,7 +139,7 @@ public class CartPage extends VBox {
     }
 
     private void loadMockCart() {
-        
+
         Food food1 = foodRepo.findById("1");
         Food food3 = foodRepo.findById("3");
         Food food5 = foodRepo.findById("5");
@@ -170,7 +170,7 @@ public class CartPage extends VBox {
         itemBox.setStyle("-fx-border-color: #e0e0e0; -fx-border-width: 1px; -fx-border-radius: 5px;");
         itemBox.setAlignment(Pos.CENTER);
 
-        
+
         ImageView imageView = new ImageView();
         try {
             String fullPath = getClass().getResource(food.getImage()) != null ?
@@ -183,7 +183,7 @@ public class CartPage extends VBox {
             itemBox.getChildren().add(placeholder);
         }
 
-        
+
         VBox infoBox = new VBox(5);
         infoBox.setMinWidth(200);
 
@@ -195,7 +195,7 @@ public class CartPage extends VBox {
 
         infoBox.getChildren().addAll(nameLabel, priceLabel);
 
-        
+
         HBox controlsBox = new HBox(5);
         controlsBox.setAlignment(Pos.CENTER);
 
@@ -212,7 +212,7 @@ public class CartPage extends VBox {
 
         controlsBox.getChildren().addAll(removeOneBtn, quantityLabel, addOneBtn);
 
-        
+
         Button removeBtn = new Button("حذف");
         removeBtn.setStyle("-fx-background-color: #ffebee; -fx-text-fill: #c62828; -fx-font-weight: bold;");
         removeBtn.setOnAction(e -> {
@@ -221,7 +221,7 @@ public class CartPage extends VBox {
             updateSummary();
         });
 
-        
+
         int totalPrice = Integer.parseInt(food.getPrice()) * quantity;
         Label totalPriceLabel = new Label(totalPrice + " تومان");
         totalPriceLabel.setStyle("-fx-font-weight: bold; -fx-min-width: 80;");
@@ -258,8 +258,8 @@ public class CartPage extends VBox {
             itemCount += quantity;
         }
 
-        int tax = (int) (subtotal * 0.1); 
-        int delivery = 15000; 
+        int tax = (int) (subtotal * 0.1);
+        int delivery = 15000;
         int total = subtotal + tax + delivery;
 
         totalItemsLabel.setText(itemCount + " آیتم");
@@ -270,23 +270,19 @@ public class CartPage extends VBox {
     }
 
     private void submitOrder() {
-        
+        // Calculate values
         int subtotal = 0;
-        int itemCount = 0;
-
         for (Map.Entry<Food, Integer> entry : cartItems.entrySet()) {
             Food food = entry.getKey();
             int quantity = entry.getValue();
             subtotal += Integer.parseInt(food.getPrice()) * quantity;
-            itemCount += quantity;
         }
-
-        int tax = (int) (subtotal * 0.1); 
-        int delivery = 15000; 
+        int tax = (int) (subtotal * 0.1);
+        int delivery = 15000;
         int total = subtotal + tax + delivery;
 
-        
-        ReceiptDialog dialog = new ReceiptDialog(cartItems, subtotal, tax, delivery, total);
+        // Show receipt dialog
+        ReceiptDialog dialog = new ReceiptDialog(cartItems, subtotal, tax, delivery, total,false);
         dialog.showAndWait();
     }
 }

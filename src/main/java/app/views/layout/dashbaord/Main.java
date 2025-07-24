@@ -4,6 +4,8 @@ import app.models.*;
 import app.states.StateManager;
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
+import app.views.pages.buyer.BuyerCompleteOrderListPage;
+import app.views.pages.buyer.BuyerInProgressOrderListPage;
 import app.views.pages.buyer.CartPage;
 import app.views.pages.buyer.RestaurantListPage;
 import app.views.pages.seller.*;
@@ -91,6 +93,16 @@ public class Main {
                 scrollContainer.setContent(new CartPage());
                 break;
 
+            case "buyer_in_progress_order_list":
+                scrollContainer.setContent(new BuyerInProgressOrderListPage());
+                break;
+
+
+            case "buyer_complete_order_list":
+                scrollContainer.setContent(new BuyerCompleteOrderListPage());
+                break;
+
+
 //            ======= SELLER =======
             case "seller_restaurant_setting":
                 scrollContainer.setContent(new RestaurantSettingPage());
@@ -102,11 +114,11 @@ public class Main {
                 scrollContainer.setContent(new PendingOrderListPage());
                 break;
             case "seller_in_progress_order_list":
-                scrollContainer.setContent(new InProgressOrderListPage());
+                scrollContainer.setContent(new SellerInProgressOrderListPage());
                 break;
 
             case "seller_complete_order_list":
-                scrollContainer.setContent(new CompleteOrderListPage());
+                scrollContainer.setContent(new SellerCompleteOrderListPage());
                 break;
 
 //            ======= ADMIN =======

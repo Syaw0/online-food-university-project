@@ -2,7 +2,6 @@ package app.views.pages.seller;
 
 import app.mock.OrderRepo;
 import app.models.Order;
-import app.views.component.ButtonComponent;
 import app.views.component.OrderDetailDialog;
 import app.views.component.Typography;
 import javafx.collections.FXCollections;
@@ -20,14 +19,12 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
-import java.util.List;
-
-public class CompleteOrderListPage extends VBox {
+public class SellerCompleteOrderListPage extends VBox {
     private final TableView<Order> table = new TableView<>();
     private final ObservableList<Order> orderData = FXCollections.observableArrayList();
     private final OrderRepo orderRepo = new OrderRepo();
 
-    public CompleteOrderListPage() {
+    public SellerCompleteOrderListPage() {
         initializeUI();
     }
 

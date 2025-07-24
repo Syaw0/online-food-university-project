@@ -3,7 +3,6 @@ package app.views.pages.seller;
 import app.mock.OrderRepo;
 import app.models.Order;
 import app.models.Order.Status;
-import app.views.component.ButtonComponent;
 import app.views.component.DeliveryAssignmentDialog;
 import app.views.component.OrderDetailDialog;
 import app.views.component.Typography;
@@ -20,14 +19,12 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
-import java.util.List;
-
-public class InProgressOrderListPage extends VBox {
+public class SellerInProgressOrderListPage extends VBox {
     private final TableView<Order> table = new TableView<>();
     private final ObservableList<Order> orderData = FXCollections.observableArrayList();
     private final OrderRepo orderRepo = new OrderRepo();
 
-    public InProgressOrderListPage() {
+    public SellerInProgressOrderListPage() {
         initializeUI();
     }
 

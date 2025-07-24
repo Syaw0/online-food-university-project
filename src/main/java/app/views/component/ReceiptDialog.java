@@ -16,12 +16,12 @@ public class ReceiptDialog extends Dialog<Void> {
     private final ToggleGroup paymentGroup = new ToggleGroup();
     private double walletBalance = 100000; 
 
-    public ReceiptDialog(Map<Food, Integer> cartItems, int subtotal, int tax, int delivery, int total) {
+    public ReceiptDialog(Map<Food, Integer> cartItems, int subtotal, int tax, int delivery, int total,Boolean isViewMode) {
         setTitle("رسید پرداخت");
-        setHeaderText("تأیید نهایی خرید");
+        setHeaderText(isViewMode? "اطلاعات سفارش شما" :"تأیید نهایی خرید");
         getDialogPane().setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
 
-        
+
         VBox receiptContainer = new VBox(20);
         receiptContainer.setPadding(new Insets(20));
         receiptContainer.setStyle("-fx-background-color: white;");
@@ -82,12 +82,13 @@ public class ReceiptDialog extends Dialog<Void> {
         receiptContainer.getChildren().add(itemsBox);
 
         
-        VBox paymentBox = new VBox(10);
+        if(!isViewMode){
+            VBox paymentBox = new VBox(10);
         Label paymentTitle = new Label("روش پرداخت");
         paymentTitle.setStyle("-fx-font-weight: bold;");
         paymentBox.getChildren().add(paymentTitle);
 
-        
+
         HBox walletBox = new HBox(10);
         RadioButton walletRadio = new RadioButton("پرداخت از کیف پول");
         walletRadio.setToggleGroup(paymentGroup);
@@ -98,27 +99,28 @@ public class ReceiptDialog extends Dialog<Void> {
         walletBox.getChildren().add(walletBalanceLabel);
         paymentBox.getChildren().add(walletBox);
 
-        
+
         RadioButton onlineRadio = new RadioButton("پرداخت آنلاین");
         onlineRadio.setToggleGroup(paymentGroup);
-        onlineRadio.setSelected(true); 
+        onlineRadio.setSelected(true);
         paymentBox.getChildren().add(onlineRadio);
 
         receiptContainer.getChildren().add(paymentBox);
 
-        
+
         Button payButton = new Button("پرداخت و ثبت سفارش");
         payButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
         payButton.setOnAction(e -> {
-            
+
             showSuccess();
             close();
         });
         HBox buttonBox = new HBox(payButton);
         buttonBox.setAlignment(Pos.CENTER);
         receiptContainer.getChildren().add(buttonBox);
+        }
 
-        
+
         getDialogPane().setContent(receiptContainer);
         getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
     }

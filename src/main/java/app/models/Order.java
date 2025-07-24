@@ -22,8 +22,9 @@ public class Order {
     private final StringProperty customerPhone = new SimpleStringProperty();
     private final StringProperty deliveryName = new SimpleStringProperty();
     private Status status;
-    private List<FoodItem> foodItems; // Changed from OrderItem to FoodItem
+    private List<FoodItem> foodItems; 
     private final StringProperty creationDate = new SimpleStringProperty();
+
 
     public Order(String id, String customerName, String customerPhone,
                  String deliveryName, Status status, List<FoodItem> foodItems) {
@@ -42,7 +43,7 @@ public class Order {
         this.creationDate.set(LocalDate.now().toString());
     }
 
-    // Properties and getters/setters
+    
     public StringProperty idProperty() { return id; }
     public StringProperty customerNameProperty() { return customerName; }
     public StringProperty customerPhoneProperty() { return customerPhone; }
@@ -94,7 +95,7 @@ public class Order {
         };
     }
 
-    // Nested class to represent food with quantity
+    
     public static class FoodItem {
         private Food food;
         private int quantity;
