@@ -159,6 +159,9 @@ public class Main {
 
     // IMPLEMENTED: Create dashboard content
     private VBox createDashboardContent(User user) {
+        if(user.getUserType() == UserType.ADMIN) {
+            return new SystemHealthPage();
+        }
         VBox content = new VBox(20);
         content.getStyleClass().add("content-area");
         content.setPadding(new Insets(20));
