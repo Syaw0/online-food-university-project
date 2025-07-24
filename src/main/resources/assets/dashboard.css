@@ -596,3 +596,164 @@
     -fx-font-weight: bold;
     -fx-padding: 10 20;
 }
+
+
+/*--------------------------------------------------Sales Report PAGE(ADMIN)--------------------------------------------------*/
+
+
+/* Sales report page */
+.stat-card {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+.chart-container {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+.icon-placeholder {
+    -fx-background-color: #e3f2fd;
+    -fx-padding: 10;
+    -fx-background-radius: 20;
+}
+
+.chart-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+}
+
+/* Bar chart styling */
+.default-color0.chart-bar {
+    -fx-bar-fill: #2196F3;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #e0e0e0;
+}
+
+/* Pie chart labels */
+.pie-label-line {
+    -fx-stroke: #616161;
+}
+
+
+
+/*--------------------------------------------------SYSTEM HEALTH PAGE[DASHBOARD](ADMIN)--------------------------------------------------*/
+
+.system-status {
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.status-good {
+    -fx-text-fill: #4CAF50;
+}
+
+.status-warning {
+    -fx-text-fill: #FFC107;
+}
+
+.status-critical {
+    -fx-text-fill: #F44336;
+}
+
+.resource-bar {
+    -fx-min-width: 400;
+    -fx-min-height: 15;
+}
+
+.stat-card {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-min-width: 180;
+}
+
+.resource-section {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-min-width: 800;
+}
+
+.chart-container {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+
+/*--------------------------------------------------TICKET PAGE(ADMIN)--------------------------------------------------*/
+.ticket-table {
+    -fx-font-size: 14px;
+}
+
+.status-open {
+    -fx-text-fill: #F44336;
+    -fx-font-weight: bold;
+}
+
+.status-in-progress {
+    -fx-text-fill: #FF9800;
+    -fx-font-weight: bold;
+}
+
+.status-resolved {
+    -fx-text-fill: #4CAF50;
+    -fx-font-weight: bold;
+}
+
+.status-closed {
+    -fx-text-fill: #9E9E9E;
+    -fx-font-weight: bold;
+}
+
+.priority-high {
+    -fx-text-fill: #F44336;
+    -fx-font-weight: bold;
+}
+
+.priority-medium {
+    -fx-text-fill: #FF9800;
+    -fx-font-weight: bold;
+}
+
+.priority-low {
+    -fx-text-fill: #4CAF50;
+    -fx-font-weight: bold;
+}
+
+.filter-box {
+    -fx-spacing: 10;
+}
+
+.view-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+}
+
+.close-button {
+    -fx-background-color: #9E9E9E;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+}
+
+.create-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+}

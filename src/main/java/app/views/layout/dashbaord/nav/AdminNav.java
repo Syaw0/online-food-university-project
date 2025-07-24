@@ -15,8 +15,7 @@ public class AdminNav extends BaseNav {
                 createNavButton("لیست سفارشات در حال انجام", "admin_order_list"),
                 createNavButton("گزارش وضعیت فروش", "admin_sales_report"),
                 createNavButton("تیکت ها", "admin_tickets"),
-
-                createNavButton("Profile", "profile")
+                createNavButton("پروفایل کاربری", "profile")
         );
         return navItems;
     }
