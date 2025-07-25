@@ -31,6 +31,7 @@ public class Main {
     private VBox mainContent;
     private ScrollPane scrollContainer;
     private User currentUser;
+    private ImageView topbarAvatarImage; 
 
     private static Main instance;
 
@@ -258,16 +259,16 @@ public class Main {
         topBar.setAlignment(Pos.CENTER_LEFT);
         topBar.setPadding(new Insets(16, 24, 16, 24));
 
-        // Left Section - Breadcrumb/Page Title
+        
         VBox leftSection = createLeftSection();
 
-        // Center Section - Search Bar
+        
         HBox centerSection = createSearchSection();
 
-        // Right Section - User Actions
+        
         HBox rightSection = createRightSection(user);
 
-        // Spacers for proper alignment
+        
         Region leftSpacer = new Region();
         Region rightSpacer = new Region();
         HBox.setHgrow(leftSpacer, Priority.ALWAYS);
@@ -289,15 +290,15 @@ public class Main {
         leftSection.getStyleClass().add("topbar-left-section");
         leftSection.setSpacing(4);
 
-        // Page title - dynamically updated based on current view
+        
         Label pageTitle = new Label("داشبورد");
         pageTitle.getStyleClass().add("topbar-page-title");
 
-        // Breadcrumb
+        
         Label breadcrumb = new Label("خانه / داشبورد");
         breadcrumb.getStyleClass().add("topbar-breadcrumb");
 
-        // Listen to navigation changes to update title and breadcrumb
+        
         StateManager.getInstance().navigationState.currentViewProperty().addListener(
                 (obs, oldView, newView) -> updatePageInfo(pageTitle, breadcrumb, newView)
         );
@@ -313,16 +314,16 @@ public class Main {
         searchSection.setMaxWidth(400);
         searchSection.setPrefWidth(350);
 
-        // Search container
+        
         HBox searchContainer = new HBox();
         searchContainer.getStyleClass().add("search-container");
         searchContainer.setAlignment(Pos.CENTER_LEFT);
 
-        // Search icon
+        
         Label searchIcon = new Label("🔍");
         searchIcon.getStyleClass().add("search-icon");
 
-        // Search field
+        
         TextField searchField = new TextField();
         searchField.getStyleClass().add("search-field");
         searchField.setPromptText("جستجو در سیستم...");
@@ -340,22 +341,22 @@ public class Main {
         rightSection.setAlignment(Pos.CENTER_RIGHT);
         rightSection.setSpacing(16);
 
-        // Current time/date
+        
         Label currentTime = createTimeLabel();
 
-        // Online status indicator
+        
         HBox onlineStatus = createOnlineStatusIndicator(user);
 
-        // Notification bell
+        
         Button notificationBtn = createNotificationButton();
 
-        // Settings button
+        
         Button settingsBtn = createSettingsButton();
 
-        // User profile section
+        
         HBox userProfile = createUserProfileSection(user);
 
-        // Logout button
+        
         Button logoutBtn = createLogoutButton();
 
         rightSection.getChildren().addAll(
@@ -374,7 +375,7 @@ public class Main {
         Label timeLabel = new Label();
         timeLabel.getStyleClass().add("topbar-time");
 
-        // Update time every minute
+        
         Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(1), e -> {
             timeLabel.setText(java.time.LocalDateTime.now()
                     .format(java.time.format.DateTimeFormatter.ofPattern("HH:mm")));
@@ -382,7 +383,7 @@ public class Main {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-        // Set initial time
+        
         timeLabel.setText(java.time.LocalDateTime.now()
                 .format(java.time.format.DateTimeFormatter.ofPattern("HH:mm")));
 
@@ -401,7 +402,7 @@ public class Main {
         Label statusText = new Label();
         statusText.getStyleClass().add("status-text");
 
-        // Update status based on user type and availability
+        
         if (user.getUserType() == UserType.DELIVERY) {
             boolean isOnline = user.getAvailability() != null ? user.getAvailability() : false;
             statusDot.getStyleClass().add(isOnline ? "status-online" : "status-offline");
@@ -419,13 +420,13 @@ public class Main {
         Button notificationBtn = new Button();
         notificationBtn.getStyleClass().add("notification-btn");
 
-        // Create notification icon with badge
+        
         StackPane notificationStack = new StackPane();
 
         Label bellIcon = new Label("🔔");
         bellIcon.getStyleClass().add("notification-bell");
 
-        // Notification badge
+        
         Label badge = new Label("3");
         badge.getStyleClass().add("notification-badge");
         StackPane.setAlignment(badge, Pos.TOP_RIGHT);
@@ -434,7 +435,7 @@ public class Main {
         notificationStack.getChildren().addAll(bellIcon, badge);
         notificationBtn.setGraphic(notificationStack);
 
-        // Click handler
+        
         notificationBtn.setOnAction(e -> {
             StateManager.getInstance().navigationState.setCurrentView("notification");
         });
@@ -446,11 +447,60 @@ public class Main {
         Button settingsBtn = new Button("⚙️");
         settingsBtn.getStyleClass().add("settings-btn");
         settingsBtn.setOnAction(e -> {
-            // Handle settings click - could open a popup or navigate to settings
+            
             System.out.println("Settings clicked");
         });
         return settingsBtn;
     }
+
+
+    private void updateProfileImage(User user) {
+        try {
+            if (user.getProfile() != null && !user.getProfile().isEmpty()) {
+                
+                Image profileImage;
+
+                if (user.getProfile().startsWith("file:")) {
+                    
+                    profileImage = new Image(user.getProfile());
+                } else if (user.getProfile().startsWith("/")) {
+                    
+                    InputStream is = getClass().getResourceAsStream(user.getProfile());
+                    if (is != null) {
+                        profileImage = new Image(is);
+                    } else {
+                        profileImage = getDefaultAvatarImage(user);
+                    }
+                } else {
+                    
+                    profileImage = new Image(user.getProfile());
+                }
+
+                topbarAvatarImage.setImage(profileImage);
+            } else {
+                topbarAvatarImage.setImage(getDefaultAvatarImage(user));
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading profile image: " + e.getMessage());
+            topbarAvatarImage.setImage(getDefaultAvatarImage(user));
+        }
+    }
+
+    private Image getDefaultAvatarImage(User user) {
+        try {
+            InputStream is = getClass().getResourceAsStream("/assets/images/users/default.png");
+            if (is != null) {
+                return new Image(is);
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading default image: " + e.getMessage());
+        }
+
+        
+        return new Image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
+    }
+
+
 
     private HBox createUserProfileSection(User user) {
         HBox profileSection = new HBox();
@@ -458,39 +508,22 @@ public class Main {
         profileSection.setAlignment(Pos.CENTER);
         profileSection.setSpacing(12);
 
+        
+        topbarAvatarImage = new ImageView();
+        topbarAvatarImage.setFitWidth(36);
+        topbarAvatarImage.setFitHeight(36);
+        topbarAvatarImage.setPreserveRatio(false);
+        topbarAvatarImage.setClip(new Circle(18, 18, 18));
 
-        ImageView avatarI = new ImageView(loadDefaultImage(user));
-        avatarI.setFitWidth(36);
-        avatarI.setFitHeight(36);
-        avatarI.setPreserveRatio(false);
-        avatarI.setClip(new Circle(18, 18, 18));
-        // User avatar
-        Circle avatar = new Circle(18);
-        avatar.getStyleClass().add("user-avatar");
+        
+        updateProfileImage(user);
 
-        // Try to load user profile image or use default
-        try {
-            System.out.println(user.getProfile() +" USER ");
-            if (user.getProfile() != null && !user.getProfile().isEmpty()) {
-                ImageView avatarImage = new ImageView(new Image(user.getProfile()));
-                avatarImage.setFitWidth(36);
-                avatarImage.setFitHeight(36);
-                avatarImage.setPreserveRatio(false);
-                avatarImage.setClip(new Circle(18, 18, 18));
-            }
-        } catch (Exception e) {
-            // Use default avatar color based on user type
-            String avatarColor = switch (user.getUserType()) {
-                case ADMIN -> "#e74c3c";
-                case SELLER -> "#f39c12";
-                case BUYER -> "#3498db";
-                case DELIVERY -> "#27ae60";
-                default -> "#95a5a6";
-            };
-            avatar.setStyle("-fx-fill: " + avatarColor + ";");
-        }
+        
+        user.profileProperty().addListener((obs, oldValue, newValue) -> {
+            updateProfileImage(user);
+        });
 
-        // User info
+        
         VBox userInfo = new VBox();
         userInfo.getStyleClass().add("user-info");
         userInfo.setSpacing(2);
@@ -504,17 +537,17 @@ public class Main {
 
         userInfo.getChildren().addAll(userName, userRole);
 
-        // Make profile section clickable
+        
         profileSection.setOnMouseClicked(e -> {
-
             StateManager.getInstance().navigationState.setCurrentView("profile");
             this.setContent(new ProfilePage(user));
         });
         profileSection.getStyleClass().add("clickable");
 
-        profileSection.getChildren().addAll(avatarI, userInfo);
+        profileSection.getChildren().addAll(topbarAvatarImage, userInfo);
         return profileSection;
     }
+
 
     private Image loadDefaultImage(User user) {
         try {
@@ -538,7 +571,7 @@ public class Main {
             StateManager.getInstance().getNavigationController().logout();
         });
 
-        // Add tooltip
+        
         Tooltip.install(logoutBtn, new Tooltip("خروج از حساب کاربری"));
 
         return logoutBtn;
@@ -591,7 +624,7 @@ public class Main {
         breadcrumb.setText(cleanPersianText(breadcrumbText));
     }
 
-    // Helper method for cleaning Persian text (add this to Main class)
+    
     private String cleanPersianText(String input) {
         if (input == null) return "";
 
