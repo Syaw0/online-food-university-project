@@ -1,49 +1,175 @@
 
+.button-contained {
+  -fx-background-color: #6200ee;
+  -fx-text-fill: #ffffff;
+  -fx-padding: 10 24;
+  -fx-font-size: 15px;
+  -fx-font-weight: 500;
+  -fx-background-radius: 4;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(gaussian, rgba(98, 0, 238, 0.18), 4, 0, 0, 2);
+  -fx-border-width: 0;
+  -fx-border-color: transparent;
+  -fx-transition: background-color 0.2s;
+}
+.button-contained:hover {
+  -fx-background-color: #3700b3;
+}
+.button-contained:pressed {
+  -fx-background-color: #3700b3;
+  -fx-effect: dropshadow(gaussian, rgba(98, 0, 238, 0.28), 8, 0, 0, 4);
+}
+.button-outlined {
+  -fx-background-color: transparent;
+  -fx-border-color: #6200ee;
+  -fx-border-width: 2;
+  -fx-text-fill: #6200ee;
+  -fx-padding: 10 24;
+  -fx-font-size: 15px;
+  -fx-font-weight: 500;
+  -fx-background-radius: 4;
+  -fx-border-radius: 4;
+  -fx-cursor: hand;
+  -fx-transition: background-color 0.2s, border-color 0.2s;
+}
+.button-outlined:hover {
+  -fx-background-color: #f3e8fd;
+  -fx-border-color: #3700b3;
+}
+.button-outlined:pressed {
+  -fx-background-color: #ede7f6;
+  -fx-border-color: #3700b3;
+}
+.button-text {
+  -fx-background-color: transparent;
+  -fx-text-fill: #6200ee;
+  -fx-padding: 10 16;
+  -fx-font-size: 15px;
+  -fx-font-weight: 500;
+  -fx-cursor: hand;
+  -fx-background-radius: 4;
+  -fx-transition: background-color 0.2s;
+}
+.button-text:hover {
+  -fx-background-color: #f3e8fd;
+}
+.button-text:pressed {
+  -fx-background-color: #ede7f6;
+}
+.typography-root {
+  -fx-letter-spacing: -0.5px;
+}
+.typography-h1 {
+  -fx-font-size: 32px;
+  -fx-font-weight: bold;
+  -fx-line-spacing: 1.2;
+}
+.typography-h2 {
+  -fx-font-size: 24px;
+  -fx-font-weight: bold;
+  -fx-line-spacing: 1.2;
+}
+.typography-h3 {
+  -fx-font-size: 20px;
+  -fx-font-weight: bold;
+  -fx-line-spacing: 1.2;
+}
+.typography-body1 {
+  -fx-font-size: 16px;
+  -fx-font-weight: normal;
+  -fx-line-spacing: 1.5;
+}
+.typography-body2 {
+  -fx-font-size: 14px;
+  -fx-font-weight: normal;
+  -fx-line-spacing: 1.5;
+}
+.typography-caption {
+  -fx-font-size: 12px;
+  -fx-font-weight: normal;
+  -fx-line-spacing: 1.2;
+}
+.text-field,
+.password-field {
+  -fx-background-color: transparent;
+  -fx-border-width: 0 0 2 0;
+  -fx-border-color: #bdbdbd;
+  -fx-padding: 8 0 6 0;
+  -fx-font-size: 16px;
+  -fx-text-fill: #222;
+  -fx-background-insets: 0;
+  -fx-background-radius: 0;
+  -fx-border-radius: 0;
+  -fx-pref-width: 240;
+  -fx-focus-color: #6200ee;
+  -fx-faint-focus-color: transparent;
+  -fx-highlight-fill: #e3e3e3;
+  -fx-highlight-text-fill: #222;
+  -fx-prompt-text-fill: #aaa;
+  -fx-cursor: text;
+  -fx-effect: null;
+}
+.text-field:focused,
+.password-field:focused {
+  -fx-border-color: #6200ee;
+  -fx-border-width: 0 0 2 0;
+}
+.checkbox {
+  -fx-padding: 6 0 6 0;
+  -fx-font-size: 15px;
+  -fx-text-fill: #222;
+}
+.checkbox .box {
+  -fx-background-color: #fff;
+  -fx-border-color: #bdbdbd;
+  -fx-border-width: 2;
+  -fx-background-radius: 3;
+  -fx-border-radius: 3;
+  -fx-pref-width: 20;
+  -fx-pref-height: 20;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.04), 2, 0, 0, 1);
+}
+.checkbox:selected .box {
+  -fx-background-color: #6200ee;
+  -fx-border-color: #6200ee;
+}
+.checkbox:selected .mark {
+  -fx-background-color: #fff;
+}
+.checkbox:focused .box {
+  -fx-border-color: #3700b3;
+}
 .dashboard-root {
     -fx-background-color: #f5f7fa;
 }
-
-
 .dashboard-navbar {
     -fx-background-color: #2c3e50;
     -fx-text-fill: white;
 }
-
-
 .main-content {
     -fx-background-color: #ffffff;
 }
-
-
 .dashboard-top-bar {
     -fx-background-color: #ffffff;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
 }
-
-
 .content-area {
     -fx-padding: 20px;
 }
-
 .info-panel {
     -fx-background-color: #e3f2fd;
     -fx-border-radius: 5px;
     -fx-border-color: #bbdefb;
 }
-
-
 .nav-button, .nav-user-info,
 .user-greeting, .user-type-badge,
 .info-panel, .role-content {
 
 }
-
-
 .dashboard-navbar {
     -fx-background-color: #6200ee;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 0);
 }
-
 .nav-logo {
     -fx-font-family: "Arial";
     -fx-font-weight: bold;
@@ -52,16 +178,12 @@
     -fx-border-color: rgba(255,255,255,0.2);
     -fx-border-width: 0 0 1 0;
 }
-
 .nav-items-container {
     -fx-spacing: 8px;
 }
-
 .nav-spacer {
     -fx-min-height: 20px;
 }
-
-
 .nav-button {
     -fx-background-color: transparent;
     -fx-text-fill: #ffffff;
@@ -72,46 +194,36 @@
     -fx-cursor: hand;
     -fx-alignment: center-left;
 }
-
 .nav-button-hover {
     -fx-background-color: rgba(255, 255, 255, 0.1) !important;
 }
-
-
 .user-info-panel {
     -fx-background-color: rgba(255,255,255,0.1);
     -fx-background-radius: 8px;
 }
-
 .nav-user-name {
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-text-fill: white;
 }
-
 .user-role {
     -fx-font-size: 12px;
     -fx-text-fill: rgba(255,255,255,0.8);
 }
-
 .dashboard-navbar {
     -fx-background-color: #1e293b; 
 }
-
 /*--------------------------------------------------DASHBOARD RESTAURANT SETTING PAGE--------------------------------------------------*/
-
 .restaurant-setting-page {
     -fx-background-color: #f8f9fa;
     -fx-padding: 30px;
     -fx-spacing: 25px;
 }
-
 .page-title {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: #1e293b;
 }
-
 .logo-section {
     -fx-alignment: center;
     -fx-spacing: 15px;
@@ -121,28 +233,23 @@
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);
 }
-
 .restaurant-logo {
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
 }
-
 .remove-logo-button {
     -fx-text-fill: #ef4444;
 }
-
 .restaurant-form {
     -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-padding: 20px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);
 }
-
 .form-label {
     -fx-font-weight: bold;
     -fx-text-fill: #334155;
     -fx-alignment: center-right;
 }
-
 .form-field {
     -fx-pref-width: 300px;
     -fx-pref-height: 35px;
@@ -152,7 +259,6 @@
     -fx-border-width: 1px;
     -fx-padding: 5px 10px;
 }
-
 .form-textarea {
     -fx-pref-width: 300px;
     -fx-pref-height: 80px;
@@ -162,13 +268,11 @@
     -fx-border-width: 1px;
     -fx-padding: 8px;
 }
-
 .update-button {
     -fx-pref-width: 200px;
     -fx-pref-height: 40px;
     -fx-background-radius: 8px;
 }
-
 .form-textarea {
     -fx-pref-width: 300px;
     -fx-pref-height: 100px;
@@ -178,52 +282,36 @@
     -fx-border-width: 1px;
     -fx-padding: 8px;
 }
-
-
 .form-textarea .scroll-pane {
     -fx-background-color: transparent;
     -fx-padding: 0;
 }
-
-
-
 .restaurant-setting-page {
     -fx-background-color: #f8f9fa;
     -fx-padding: 30px;
     -fx-spacing: 25px;
 }
-
 .logo-section {
     -fx-alignment: center;
     -fx-spacing: 15px;
     -fx-padding: 20px;
 }
-
 .restaurant-form {
     -fx-padding: 20px;
 }
-
 .form-textarea .scroll-pane {
     -fx-background-color: transparent;
 }
-
 .form-textarea .content {
     -fx-background-color: transparent;
 }
-
 .form-textarea .scroll-bar:vertical {
     -fx-pref-width: 12px;
 }
-
-
 .form-textarea {
     -fx-pref-height: 100px;
 }
-
-
 /*--------------------------------------------------FOOD DETAIL DIALOG--------------------------------------------------*/
-
-
 .detail-grid {
     -fx-background-color: #ffffff;
     -fx-border-color: #e0e0e0;
@@ -231,50 +319,40 @@
     -fx-border-radius: 5px;
     -fx-padding: 15px;
 }
-
 .detail-label {
     -fx-font-weight: bold;
     -fx-text-fill: #424242;
     -fx-font-size: 14px;
 }
-
 .detail-value {
     -fx-text-fill: #616161;
     -fx-font-size: 14px;
 }
-
-
 .comments-header {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-text-fill: #212121;
     -fx-padding: 5px 0;
 }
-
 .comments-section {
     -fx-padding: 10px 0 0 0;
 }
-
 .comments-scroll {
     -fx-background-color: transparent;
     -fx-padding: 0;
     -fx-border-color: transparent;
     -fx-fit-to-height: true;
 }
-
 .comments-container {
     -fx-padding: 5px;
     -fx-spacing: 10px;
 }
-
 .no-comments {
     -fx-text-fill: #9e9e9e;
     -fx-font-style: italic;
     -fx-padding: 10px;
     -fx-alignment: center;
 }
-
-
 .comment-card {
     -fx-background-color: #ffffff;
     -fx-border-color: #e0e0e0;
@@ -284,62 +362,47 @@
     -fx-background-radius: 5px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 0);
 }
-
 .comment-header {
     -fx-alignment: center-right;
 }
-
 .user-image {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 1);
 }
-
 .user-name {
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-text-fill: #424242;
 }
-
 .comment-title {
     -fx-font-weight: bold;
     -fx-font-size: 16px;
     -fx-text-fill: #212121;
 }
-
 .comment-description {
     -fx-font-size: 14px;
     -fx-text-fill: #616161;
     -fx-padding: 5px 0 0 0;
 }
-
-
 .star-filled {
     -fx-text-fill: #FFC107;
     -fx-font-size: 16px;
 }
-
 .star-empty {
     -fx-text-fill: #E0E0E0;
     -fx-font-size: 16px;
 }
-
-
 .food-image {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
     -fx-alignment: center;
 }
-
 /*--------------------------------------------------ORDER DETAIL DIALOG--------------------------------------------------*/
-
-
 .order-detail-dialog {
     -fx-pref-width: 600px;
     -fx-pref-height: 700px;
 }
-
 .dialog-content {
     -fx-background-color: #ffffff;
 }
-
 .order-info {
     -fx-padding: 15px;
     -fx-background-color: #f8f9fa;
@@ -347,57 +410,47 @@
     -fx-border-color: #e0e0e0;
     -fx-border-width: 1px;
 }
-
 .info-label {
     -fx-font-weight: bold;
     -fx-text-fill: #424242;
     -fx-font-size: 14px;
 }
-
 .info-value {
     -fx-text-fill: #616161;
     -fx-font-size: 14px;
 }
-
 .status-label {
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-padding: 3px 10px;
     -fx-background-radius: 10px;
 }
-
 .status-pending {
     -fx-background-color: #FFF3CD;
     -fx-text-fill: #856404;
 }
-
 .status-accepted {
     -fx-background-color: #D4EDDA;
     -fx-text-fill: #155724;
 }
-
 .status-rejected {
     -fx-background-color: #F8D7DA;
     -fx-text-fill: #721C24;
 }
-
 .items-header {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #212121;
     -fx-padding: 5px 0;
 }
-
 .items-scroll {
     -fx-background-color: transparent;
     -fx-padding: 0;
     -fx-border-color: transparent;
 }
-
 .items-container {
     -fx-padding: 5px;
 }
-
 .food-item-card {
     -fx-background-color: white;
     -fx-border-color: #e0e0e0;
@@ -407,38 +460,30 @@
     -fx-background-radius: 5px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 0);
 }
-
 .food-image {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 1, 1);
 }
-
 .food-details {
     -fx-spacing: 5px;
 }
-
 .food-name {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #212121;
 }
-
 .food-description {
     -fx-font-size: 14px;
     -fx-text-fill: #616161;
 }
-
 .food-price {
     -fx-font-weight: bold;
     -fx-text-fill: #4CAF50;
 }
-
 .food-quantity {
     -fx-font-weight: bold;
     -fx-text-fill: #2196F3;
 }
-
 /*--------------------------------------------------RESTAURANT LIST PAGE(BUYER)--------------------------------------------------*/
-
 .card-component {
     -fx-background-color: white;
     -fx-border-color: #e0e0e0;
@@ -447,54 +492,42 @@
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
 }
-
 .card-component:hover {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
 }
-
-
 .filter-component {
     -fx-padding: 10px;
 }
-
-
 .restaurant-list-page {
     -fx-background-color: #f7f7f7;
 }
-
 .card-description {
     -fx-wrap-text: true;
     -fx-max-width: 200px;
 }
-
 .card-title {
     -fx-font-weight: bold;
     -fx-font-size: 16px;
 }
-
 .card-rating {
     -fx-text-fill: #FFD700;
     -fx-font-weight: bold;
 }
-
 .card-description {
     -fx-wrap-text: true;
     -fx-max-width: 200px;
     -fx-font-size: 14px;
     -fx-padding: 5px;
 }
-
 .action-button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
 }
-
 .action-button:hover {
     -fx-background-color: #3d9140;
 }
-
 .card-description {
     -fx-wrap-text: true;
     -fx-max-width: 200px;
@@ -502,28 +535,22 @@
     -fx-padding: 5px;
     -fx-text-alignment: right; 
 }
-
-
 /*--------------------------------------------------RESTAURANT DETAIL PAGE(BUYER)--------------------------------------------------*/
-
 .restaurant-image {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
 }
-
 .restaurant-name {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-alignment: right;
     -fx-padding: 10px 0;
 }
-
 .restaurant-rating {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-text-alignment: right;
     -fx-padding: 5px 0;
 }
-
 .restaurant-description {
     -fx-font-size: 16px;
     -fx-wrap-text: true;
@@ -531,146 +558,108 @@
     -fx-padding: 10px 0;
     -fx-max-width: 600px;
 }
-
 .food-section-title {
     -fx-font-size: 22px;
     -fx-font-weight: bold;
     -fx-text-alignment: right;
     -fx-padding: 10px 0;
 }
-
 /*--------------------------------------------------CART PAGE(BUYER)--------------------------------------------------*/
-
-
-
 .cart-item {
     -fx-border-color: #e0e0e0;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
     -fx-padding: 15px;
 }
-
 .cart-quantity-btn {
     -fx-background-color: #f5f5f5;
     -fx-min-width: 30px;
     -fx-min-height: 30px;
     -fx-background-radius: 15px;
 }
-
 .cart-remove-btn {
     -fx-background-color: #ffebee;
     -fx-text-fill: #c62828;
     -fx-font-weight: bold;
     -fx-padding: 5px 10px;
 }
-
-
 /*--------------------------------------------------RECEIPT DIALOG (BUYER)--------------------------------------------------*/
-
-
 .receipt-container {
     -fx-padding: 20;
     -fx-spacing: 10;
 }
-
 .receipt-title {
     -fx-font-size: 18;
     -fx-font-weight: bold;
     -fx-text-alignment: center;
 }
-
 .receipt-grid {
     -fx-vgap: 5;
     -fx-hgap: 10;
     -fx-padding: 10;
 }
-
 .total-label {
     -fx-font-weight: bold;
     -fx-text-fill: #2e7d32;
 }
-
 .pay-button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-padding: 10 20;
 }
-
-
 /*--------------------------------------------------Sales Report PAGE(ADMIN)--------------------------------------------------*/
-
-
-
 .stat-card {
     -fx-background-color: white;
     -fx-padding: 20;
     -fx-background-radius: 8;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
 }
-
 .chart-container {
     -fx-background-color: white;
     -fx-padding: 20;
     -fx-background-radius: 8;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
 }
-
 .icon-placeholder {
     -fx-background-color: #e3f2fd;
     -fx-padding: 10;
     -fx-background-radius: 20;
 }
-
 .chart-title {
     -fx-font-weight: bold;
     -fx-font-size: 16;
 }
-
-
 .default-color0.chart-bar {
     -fx-bar-fill: #2196F3;
 }
-
 .chart-vertical-grid-lines {
     -fx-stroke: transparent;
 }
-
 .chart-horizontal-grid-lines {
     -fx-stroke: #e0e0e0;
 }
-
-
 .pie-label-line {
     -fx-stroke: #616161;
 }
-
-
-
 /*--------------------------------------------------SYSTEM HEALTH PAGE[DASHBOARD](ADMIN)--------------------------------------------------*/
-
 .system-status {
     -fx-font-size: 18;
     -fx-font-weight: bold;
 }
-
 .status-good {
     -fx-text-fill: #4CAF50;
 }
-
 .status-warning {
     -fx-text-fill: #FFC107;
 }
-
 .status-critical {
     -fx-text-fill: #F44336;
 }
-
 .resource-bar {
     -fx-min-width: 400;
     -fx-min-height: 15;
 }
-
 .stat-card {
     -fx-background-color: white;
     -fx-padding: 20;
@@ -678,7 +667,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
     -fx-min-width: 180;
 }
-
 .resource-section {
     -fx-background-color: white;
     -fx-padding: 20;
@@ -686,109 +674,87 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
     -fx-min-width: 800;
 }
-
 .chart-container {
     -fx-background-color: white;
     -fx-padding: 20;
     -fx-background-radius: 8;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
 }
-
-
 /*--------------------------------------------------TICKET PAGE(ADMIN)--------------------------------------------------*/
 .ticket-table {
     -fx-font-size: 14px;
 }
-
 .status-open {
     -fx-text-fill: #F44336;
     -fx-font-weight: bold;
 }
-
 .status-in-progress {
     -fx-text-fill: #FF9800;
     -fx-font-weight: bold;
 }
-
 .status-resolved {
     -fx-text-fill: #4CAF50;
     -fx-font-weight: bold;
 }
-
 .status-closed {
     -fx-text-fill: #9E9E9E;
     -fx-font-weight: bold;
 }
-
 .priority-high {
     -fx-text-fill: #F44336;
     -fx-font-weight: bold;
 }
-
 .priority-medium {
     -fx-text-fill: #FF9800;
     -fx-font-weight: bold;
 }
-
 .priority-low {
     -fx-text-fill: #4CAF50;
     -fx-font-weight: bold;
 }
-
 .filter-box {
     -fx-spacing: 10;
 }
-
 .view-button {
     -fx-background-color: #2196F3;
     -fx-text-fill: white;
     -fx-padding: 5 10;
 }
-
 .close-button {
     -fx-background-color: #9E9E9E;
     -fx-text-fill: white;
     -fx-padding: 5 10;
 }
-
 .create-button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-padding: 8 15;
 }
-
 /*--------------------------------------------------NOTIFICATION PAGE(SHARED)--------------------------------------------------*/
-
 .notification-page-root {
     -fx-background-color: #f8f9fc;
     -fx-padding: 24;
     -fx-spacing: 16;
 }
-
 .notification-page-header {
     -fx-padding: 0 0 20 0;
 }
-
 .notification-page-title {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .notification-scroll-pane {
     -fx-background-color: transparent;
     -fx-padding: 0;
 }
-
 .notification-scroll-pane .viewport {
     -fx-background-color: transparent;
 }
-
 .notification-scroll-pane .scroll-bar {
     -fx-background-color: transparent;
 }
-
 .notification-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -799,17 +765,14 @@
     -fx-spacing: 12;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
 }
-
 .notification-card:hover {
     -fx-border-color: #3498db;
     -fx-effect: dropshadow(gaussian, rgba(52,152,219,0.2), 12, 0, 0, 4);
 }
-
 .notification-header {
     -fx-spacing: 12;
     -fx-alignment: center-left;
 }
-
 .notification-icon {
     -fx-min-width: 40;
     -fx-min-height: 40;
@@ -818,101 +781,80 @@
     -fx-background-radius: 20;
     -fx-alignment: center;
 }
-
 .notification-icon-order {
     -fx-background-color: #3498db;
 }
-
 .notification-icon-payment {
     -fx-background-color: #27ae60;
 }
-
 .notification-icon-delivery {
     -fx-background-color: #f39c12;
 }
-
 .notification-icon-system {
     -fx-background-color: #9b59b6;
 }
-
 .notification-icon-text {
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-font-size: 16px;
 }
-
 .notification-content {
     -fx-spacing: 8;
 }
-
 .notification-title {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .notification-message {
     -fx-font-size: 14px;
     -fx-text-fill: #7f8c8d;
     -fx-wrap-text: true;
 }
-
 .notification-time {
     -fx-font-size: 12px;
     -fx-text-fill: #95a5a6;
 }
-
 .empty-state {
     -fx-alignment: center;
     -fx-spacing: 16;
     -fx-padding: 60;
 }
-
 .empty-state-text {
     -fx-font-size: 18px;
     -fx-text-fill: #7f8c8d;
 }
-
 /*--------------------------------------------------BUYER DASHBOARD(SHARED)--------------------------------------------------*/
-
 .buyer-dashboard-root {
     -fx-background-color: #f8f9fc;
     -fx-padding: 20;
     -fx-spacing: 24;
 }
-
 .dashboard-scroll-pane {
     -fx-background-color: transparent;
     -fx-padding: 0;
 }
-
 .dashboard-scroll-pane .viewport {
     -fx-background-color: transparent;
 }
-
-
 .welcome-section {
     -fx-background-color: #ff6b6b;
     -fx-background-radius: 16;
     -fx-padding: 24;
     -fx-spacing: 16;
 }
-
 .welcome-title {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
-
 .welcome-subtitle {
     -fx-font-size: 16px;
     -fx-text-fill: #e6e6ff; 
 }
-
 .stats-container {
     -fx-spacing: 20;
 }
-
 .stat-card {
     -fx-background-color: #ffffff; 
     -fx-background-radius: 12;
@@ -921,36 +863,28 @@
     -fx-alignment: center;
     -fx-min-width: 120;
 }
-
 .stat-number {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     /*-fx-text-fill: white;*/
 }
-
 .stat-label {
     -fx-font-size: 14px;
     -fx-text-fill: #404059; 
 }
-
-
 .section-header {
     -fx-spacing: 12;
     -fx-padding: 0 0 16 0;
 }
-
 .section-title {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .section-subtitle {
     -fx-font-size: 14px;
     -fx-text-fill: #7f8c8d;
 }
-
-
 .card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -959,131 +893,105 @@
     -fx-border-width: 1;
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2); 
 }
-
 .card:hover {
     -fx-border-color: #3498db;
     -fx-effect: dropshadow(gaussian, #3498db33, 12, 0, 0, 4); 
 }
-
-
 .restaurant-card {
     -fx-padding: 16;
     -fx-spacing: 12;
     -fx-min-width: 280;
     -fx-max-width: 280;
 }
-
 .restaurant-image {
     -fx-background-radius: 8;
     -fx-border-radius: 8;
 }
-
 .restaurant-name {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .restaurant-description {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
     -fx-wrap-text: true;
 }
-
 .restaurant-rating {
     -fx-spacing: 6;
     -fx-alignment: center-left;
 }
-
 .rating-text {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #f39c12;
 }
-
-
 .food-card {
     -fx-padding: 12;
     -fx-spacing: 8;
     -fx-min-width: 200;
     -fx-max-width: 200;
 }
-
 .food-image {
     -fx-background-radius: 6;
     -fx-border-radius: 6;
 }
-
 .food-name {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .food-price {
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-text-fill: #27ae60;
 }
-
-
 .order-card {
     -fx-padding: 16;
     -fx-spacing: 12;
 }
-
 .order-header {
     -fx-spacing: 12;
     -fx-alignment: center-left;
 }
-
 .order-id {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .order-status {
     -fx-background-radius: 12;
     -fx-padding: 6 12;
     -fx-font-size: 12px;
     -fx-font-weight: bold;
 }
-
 .status-pending {
     -fx-background-color: #fff3cd;
     -fx-text-fill: #856404;
 }
-
 .status-preparing {
     -fx-background-color: #d1ecf1;
     -fx-text-fill: #0c5460;
 }
-
 .status-delivered {
     -fx-background-color: #d4edda;
     -fx-text-fill: #155724;
 }
-
-
 .promotion-card {
     -fx-background-color: #ff6b6b;
     -fx-padding: 20;
     -fx-spacing: 8;
     -fx-background-radius: 12;
 }
-
 .promotion-title {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
-
 .promotion-description {
     -fx-font-size: 14px;
     -fx-text-fill: #e6e6ff; 
 }
-
 .promotion-code {
     -fx-background-color: #ffffff33; 
     -fx-background-radius: 6;
@@ -1093,8 +1001,6 @@
     -fx-text-fill: white;
     -fx-alignment: center;
 }
-
-
 .quick-action-card {
     -fx-padding: 20;
     -fx-spacing: 12;
@@ -1104,117 +1010,91 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
-
 .quick-action-card:hover {
     -fx-background-color: #2980b9;
 }
-
 .quick-action-icon {
     -fx-font-size: 32px;
     -fx-text-fill: #3498db;
 }
-
 .quick-action-title {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
-
 .horizontal-scroll {
     -fx-hbar-policy: as-needed;
     -fx-vbar-policy: never;
     -fx-background-color: transparent;
 }
-
 .horizontal-container {
     -fx-spacing: 16;
     -fx-padding: 8;
 }
-
-
 /*--------------------------------------------------SELLER DASHBOARD--------------------------------------------------*/
-
 .seller-dashboard-root {
     -fx-background-color: #f5f7fa;
     -fx-padding: 20;
     -fx-spacing: 24;
 }
-
 .dashboard-scroll-pane {
     -fx-background-color: transparent;
     -fx-padding: 0;
 }
-
-
 .seller-welcome-section {
     -fx-background-color:#667eea;
     -fx-background-radius: 16;
     -fx-padding: 24;
     -fx-spacing: 16;
 }
-
 .welcome-title {
     -fx-font-size: 26px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
-
 .welcome-subtitle {
     -fx-font-size: 16px;
     -fx-text-fill: #e6e6ff;
 }
-
 .date-label {
     -fx-font-size: 14px;
     -fx-text-fill: #ccccff;
 }
-
 .restaurant-name {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
-
-
 .quick-stats {
     -fx-spacing: 20;
     -fx-padding: 20 0 0 0;
 }
-
 .seller-stat-card {
     -fx-background-color: #ffffff33;
     -fx-background-radius: 12;
     -fx-padding: 16;
     -fx-min-width: 140;
 }
-
 .stat-value {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
-
 .stat-label {
     -fx-font-size: 12px;
     -fx-text-fill: #ccccff;
 }
-
-
 .section-title {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
     -fx-padding: 0 0 12 0;
 }
-
 .subsection-title {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #34495e;
 }
-
-
 .chart-container {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1223,36 +1103,29 @@
     -fx-border-radius: 12;
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
 }
-
 .chart-title {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
     -fx-alignment: center;
 }
-
 .chart-bar {
     -fx-stroke: #1976D2;
     -fx-stroke-width: 1;
 }
-
 .chart-day-label {
     -fx-font-size: 11px;
     -fx-text-fill: #666;
 }
-
 .chart-value-label {
     -fx-font-size: 10px;
     -fx-text-fill: #2196F3;
     -fx-font-weight: bold;
 }
-
 .legend-label {
     -fx-font-size: 12px;
     -fx-text-fill: #555;
 }
-
-
 .order-status-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1262,18 +1135,15 @@
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
     -fx-min-width: 160;
 }
-
 .order-count {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .order-status {
     -fx-font-size: 13px;
     -fx-text-fill: #7f8c8d;
 }
-
 .order-item {
     -fx-background-color: white;
     -fx-background-radius: 8;
@@ -1281,41 +1151,33 @@
     -fx-border-width: 1;
     -fx-border-radius: 8;
 }
-
 .order-id-label {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .customer-label {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
 }
-
 .status-badge {
     -fx-background-radius: 12;
     -fx-padding: 4 8;
     -fx-font-size: 11px;
     -fx-font-weight: bold;
 }
-
 .status-pending {
     -fx-background-color: #fff3cd;
     -fx-text-fill: #856404;
 }
-
 .status-preparing {
     -fx-background-color: #d1ecf1;
     -fx-text-fill: #0c5460;
 }
-
 .status-delivered {
     -fx-background-color: #d4edda;
     -fx-text-fill: #155724;
 }
-
-
 .food-analytics-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1324,19 +1186,15 @@
     -fx-border-radius: 12;
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
 }
-
 .food-name {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .food-sales, .food-revenue, .food-rating {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
 }
-
-
 .review-summary-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1345,20 +1203,16 @@
     -fx-border-radius: 12;
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
 }
-
 .rating-label {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .percentage-label {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
-
 .financial-metric-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1368,19 +1222,15 @@
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
     -fx-min-width: 180;
 }
-
 .metric-value {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-text-fill: #27ae60;
 }
-
 .metric-label {
     -fx-font-size: 13px;
     -fx-text-fill: #7f8c8d;
 }
-
-
 .action-button {
     -fx-background-color: #3498db;
     -fx-text-fill: white;
@@ -1389,83 +1239,64 @@
     -fx-border-radius: 8;
     -fx-font-size: 12px;
 }
-
 .action-button:hover {
     -fx-background-color: #2980b9;
 }
-
 .action-button:pressed {
     -fx-background-color: #21618c;
 }
-
-
 /*--------------------------------------------------DELIVERY DASHBOARD--------------------------------------------------*/
-
 .delivery-dashboard-root {
     -fx-background-color: #f0f4f7;
     -fx-padding: 20;
     -fx-spacing: 24;
 }
-
 .dashboard-scroll-pane {
     -fx-background-color: transparent;
     -fx-padding: 0;
 }
-
-
 .delivery-welcome-section {
     -fx-background-color: #1e3c72;
     -fx-background-radius: 16;
     -fx-padding: 24;
     -fx-spacing: 16;
 }
-
 .welcome-title {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
-
 .welcome-subtitle {
     -fx-font-size: 16px;
     -fx-text-fill: #e6e6ff;
 }
-
 .date-label {
     -fx-font-size: 14px;
     -fx-text-fill: #ccccff;
 }
-
 .status-label {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
 }
-
-
 .daily-stats {
     -fx-spacing: 20;
     -fx-padding: 20 0 0 0;
 }
-
 .delivery-stat-card {
     -fx-background-color: #ffffff33;
     -fx-background-radius: 12;
     -fx-padding: 16;
     -fx-min-width: 120;
 }
-
 .stat-value {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
-
 .stat-label {
     -fx-font-size: 12px;
     -fx-text-fill: #ccccff;
 }
-
-
 .status-toggle-container {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1474,39 +1305,31 @@
     -fx-border-radius: 12;
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
 }
-
 .status-btn {
     -fx-background-radius: 8;
     -fx-border-radius: 8;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
 }
-
 .status-active {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
 }
-
 .status-inactive {
     -fx-background-color: #f5f5f5;
     -fx-text-fill: #666;
 }
-
-
 .section-title {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
     -fx-padding: 0 0 12 0;
 }
-
 .subsection-title {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #34495e;
 }
-
-
 .order-type-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1515,19 +1338,15 @@
     -fx-border-radius: 12;
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
 }
-
 .order-count {
     -fx-font-size: 22px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .order-type {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
 }
-
-
 .delivery-order-item {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1536,24 +1355,20 @@
     -fx-border-radius: 12;
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
 }
-
 .order-id-label {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .customer-label, .address-label {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
 }
-
 .distance-label, .time-label {
     -fx-font-size: 12px;
     -fx-text-fill: #3498db;
     -fx-font-weight: bold;
 }
-
 .delivery-action-btn {
     -fx-background-color: #2196F3;
     -fx-text-fill: white;
@@ -1561,12 +1376,9 @@
     -fx-border-radius: 6;
     -fx-font-weight: bold;
 }
-
 .delivery-action-btn:hover {
     -fx-background-color: #1976D2;
 }
-
-
 .performance-chart-container {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1575,31 +1387,25 @@
     -fx-border-radius: 12;
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
 }
-
 .chart-title {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
     -fx-alignment: center;
 }
-
 .performance-bar {
     -fx-stroke: #388E3C;
     -fx-stroke-width: 1;
 }
-
 .chart-day-label {
     -fx-font-size: 10px;
     -fx-text-fill: #666;
 }
-
 .chart-value-label {
     -fx-font-size: 11px;
     -fx-text-fill: #4CAF50;
     -fx-font-weight: bold;
 }
-
-
 .earning-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1609,19 +1415,15 @@
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
     -fx-min-width: 170;
 }
-
 .earning-value {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #27ae60;
 }
-
 .earning-label {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
 }
-
-
 .overall-rating {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1631,34 +1433,27 @@
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
     -fx-min-width: 150;
 }
-
 .rating-value {
     -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-text-fill: #f39c12;
 }
-
 .rating-label {
     -fx-font-size: 14px;
     -fx-text-fill: #2c3e50;
 }
-
 .total-reviews {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
 }
-
 .rating-breakdown-label {
     -fx-font-size: 12px;
     -fx-text-fill: #2c3e50;
 }
-
 .percentage-label {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
 }
-
-
 .review-item {
     -fx-background-color: white;
     -fx-background-radius: 8;
@@ -1666,23 +1461,18 @@
     -fx-border-width: 1;
     -fx-border-radius: 8;
 }
-
 .reviewer-name {
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .review-text {
     -fx-font-size: 12px;
     -fx-text-fill: #7f8c8d;
 }
-
 .stars-label {
     -fx-font-size: 14px;
 }
-
-
 .area-card {
     -fx-background-color: white;
     -fx-background-radius: 12;
@@ -1692,19 +1482,15 @@
     -fx-effect: dropshadow(gaussian, #00000014, 8, 0, 0, 2);
     -fx-min-width: 160;
 }
-
 .area-name {
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .area-count {
     -fx-font-size: 12px;
     -fx-text-fill: #3498db;
 }
-
-
 .delivery-action-button {
     -fx-background-color: #34495e;
     -fx-text-fill: white;
@@ -1713,18 +1499,13 @@
     -fx-border-radius: 8;
     -fx-font-size: 12px;
 }
-
 .delivery-action-button:hover {
     -fx-background-color: #2c3e50;
 }
-
 .delivery-action-button:pressed {
     -fx-background-color: #1a252f;
 }
-
-
 /*--------------------------------------------------DASHBOARD TOPBAR--------------------------------------------------*/
-
 .dashboard-top-bar {
     /*-fx-background-color: linear-gradient(to right, #ffffff 0%, #f8f9fa 100%);*/
     -fx-background-color: #ffffff;
@@ -1734,29 +1515,22 @@
     -fx-padding: 16 24;
     -fx-spacing: 24;
 }
-
-
 .topbar-left-section {
     -fx-spacing: 4;
 }
-
 .topbar-page-title {
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .topbar-breadcrumb {
     -fx-font-size: 12px;
     -fx-text-fill: #6c757d;
 }
-
-
 .topbar-search-section {
     -fx-max-width: 400;
     -fx-pref-width: 350;
 }
-
 .search-container {
     -fx-background-color: #f8f9fa;
     -fx-background-radius: 20;
@@ -1766,17 +1540,14 @@
     -fx-padding: 8 16;
     -fx-spacing: 8;
 }
-
 .search-container:focused-within {
     -fx-border-color: #007bff;
     -fx-background-color: white;
 }
-
 .search-icon {
     -fx-font-size: 14px;
     -fx-text-fill: #6c757d;
 }
-
 .search-field {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -1784,18 +1555,14 @@
     -fx-text-fill: #495057;
     -fx-prompt-text-fill: #adb5bd;
 }
-
 .search-field:focused {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
-
-
 .topbar-right-section {
     -fx-spacing: 16;
     -fx-alignment: center-right;
 }
-
 .topbar-time {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -1804,8 +1571,6 @@
     -fx-background-color: #e9ecef;
     -fx-background-radius: 12;
 }
-
-
 .status-indicator {
     -fx-spacing: 6;
     -fx-alignment: center;
@@ -1816,26 +1581,20 @@
     -fx-border-width: 1;
     -fx-border-radius: 15;
 }
-
 .status-dot {
     -fx-radius: 4;
 }
-
 .status-online {
     -fx-fill: #28a745;
 }
-
 .status-offline {
     -fx-fill: #dc3545;
 }
-
 .status-text {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-text-fill: #495057;
 }
-
-
 .notification-btn {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -1843,15 +1602,12 @@
     -fx-background-radius: 50;
     -fx-border-radius: 50;
 }
-
 .notification-btn:hover {
     -fx-background-color: #f8f9fa;
 }
-
 .notification-bell {
     -fx-font-size: 18px;
 }
-
 .notification-badge {
     -fx-background-color: #dc3545;
     -fx-text-fill: white;
@@ -1862,8 +1618,6 @@
     -fx-min-width: 18;
     -fx-alignment: center;
 }
-
-
 .settings-btn {
     -fx-background-color: transparent;
     -fx-border-color: #dee2e6;
@@ -1874,13 +1628,10 @@
     -fx-font-size: 16px;
     -fx-text-fill: #6c757d;
 }
-
 .settings-btn:hover {
     -fx-background-color: #f8f9fa;
     -fx-border-color: #adb5bd;
 }
-
-
 .user-profile-section {
     -fx-spacing: 12;
     -fx-alignment: center;
@@ -1888,37 +1639,29 @@
     -fx-background-radius: 20;
     -fx-border-radius: 20;
 }
-
 .user-profile-section.clickable {
     -fx-cursor: hand;
 }
-
 .user-profile-section.clickable:hover {
     -fx-background-color: #f8f9fa;
 }
-
 .user-avatar {
     -fx-stroke: #dee2e6;
     -fx-stroke-width: 2;
     -fx-fill: #6c757d;
 }
-
 .user-info {
     -fx-spacing: 2;
 }
-
 .topbar-user-name {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
-
 .topbar-user-role {
     -fx-font-size: 11px;
     -fx-text-fill: #6c757d;
 }
-
-
 .logout-btn {
     -fx-background-color: #dc3545;
     -fx-text-fill: white;
@@ -1931,20 +1674,16 @@
     -fx-min-width: 36;
     -fx-min-height: 36;
 }
-
 .logout-btn:hover {
     -fx-background-color: #c82333;
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 }
-
 .logout-btn:pressed {
     -fx-background-color: #bd2130;
     -fx-scale-x: 0.95;
     -fx-scale-y: 0.95;
 }
-
-
 @media (max-width: 768px) {
     .topbar-search-section {
         -fx-max-width: 250;
@@ -1959,4 +1698,32 @@
         -fx-font-size: 12px;
         -fx-padding: 6 8;
     }
+}
+.root {
+  -fx-node-orientation: right-to-left;
+  -fx-letter-spacing: normal;
+  -fx-background-color: #ffffff;
+  -fx-font-family: "Vazirmatn", sans-serif;
+  /*-fx-font-family: "Tahoma";*/
+  -fx-letter-spacing: -0.5px;
+}
+* {
+  -fx-node-orientation: right-to-left;
+}
+.auth-layout-container {
+  -fx-alignment: center;
+}
+.auth-right-pane {
+  -fx-background-color: #fff;
+  -fx-padding: 40 32;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 16, 0, 0, 4);
+  -fx-background-radius: 16;
+  -fx-min-width: 400;
+  -fx-max-width: 480;
+  -fx-alignment: center;
+}
+.auth-left-pane {
+  -fx-background-radius: 16 0 0 16;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 24, 0, 0, 8);
+  -fx-overflow: hidden;
 }

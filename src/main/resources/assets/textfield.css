@@ -1,4 +1,4 @@
-/* Material Design TextField */
+
 .text-field,
 .password-field {
   -fx-background-color: transparent;
@@ -25,7 +25,7 @@
   -fx-border-width: 0 0 2 0;
 }
 
-/* Material Design Checkbox */
+
 .checkbox {
   -fx-padding: 6 0 6 0;
   -fx-font-size: 15px;

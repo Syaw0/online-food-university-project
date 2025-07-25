@@ -18,7 +18,7 @@ public class NavigationController {
     public void showAuthLayout() {
         AuthLayout authLayout = new AuthLayout();
         Scene scene = new Scene(authLayout.getView(), 1000, 600);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/assets/style.css")).toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/assets/index.css")).toExternalForm());
         stage.setScene(scene);
         stage.setTitle("FoodApp - Auth");
     }
@@ -26,7 +26,7 @@ public class NavigationController {
     public void showDashboardLayout() {
         DashboardLayout dashboardLayout = new DashboardLayout();
         Scene scene = new Scene(dashboardLayout.getView(), 1000, 600);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/assets/style.css")).toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/assets/index.css")).toExternalForm());
         stage.setTitle("FoodApp - Dashboard");
         stage.setScene(scene);
     }

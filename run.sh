@@ -10,9 +10,10 @@ rm -rf ./out
 
 mkdir -p out
 
+npx postcss src/main/resources/assets/style.css -o  src/main/resources/assets/index.css 
+
 cp -r src/main/resources/assets out/
 
-npx postcss src/main/resources/assets/style.css -o out/assets/style.css
 
 
 

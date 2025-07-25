@@ -1,6 +1,6 @@
 @import url("theme.css");
 
-/* Material Design Button Variations */
+
 
 .button-contained {
   -fx-background-color: var(--md-primary);
