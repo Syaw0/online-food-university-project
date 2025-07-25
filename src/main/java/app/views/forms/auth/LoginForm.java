@@ -44,11 +44,11 @@ public class LoginForm extends VBox {
 
         phoneField = new TextFieldComponent();
         phoneField.setPromptText("شماره تماس");
-        phoneField.setText("09001234367");
+        phoneField.setText("");
 
         passField = new PasswordFieldComponent();
         passField.setPromptText("رمز عبور");
-        passField.setText("123");
+        passField.setText("");
 
         errorLabel = new Typography("", Typography.Variant.LABEL);
         errorLabel.setStyle("-fx-text-fill: red;");
