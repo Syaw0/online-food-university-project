@@ -25,6 +25,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
+import java.io.InputStream;
+
 public class Main {
     private VBox mainContent;
     private ScrollPane scrollContainer;
@@ -456,12 +458,19 @@ public class Main {
         profileSection.setAlignment(Pos.CENTER);
         profileSection.setSpacing(12);
 
+
+        ImageView avatarI = new ImageView(loadDefaultImage(user));
+        avatarI.setFitWidth(36);
+        avatarI.setFitHeight(36);
+        avatarI.setPreserveRatio(false);
+        avatarI.setClip(new Circle(18, 18, 18));
         // User avatar
         Circle avatar = new Circle(18);
         avatar.getStyleClass().add("user-avatar");
 
         // Try to load user profile image or use default
         try {
+            System.out.println(user.getProfile() +" USER ");
             if (user.getProfile() != null && !user.getProfile().isEmpty()) {
                 ImageView avatarImage = new ImageView(new Image(user.getProfile()));
                 avatarImage.setFitWidth(36);
@@ -503,8 +512,22 @@ public class Main {
         });
         profileSection.getStyleClass().add("clickable");
 
-        profileSection.getChildren().addAll(avatar, userInfo);
+        profileSection.getChildren().addAll(avatarI, userInfo);
         return profileSection;
+    }
+
+    private Image loadDefaultImage(User user) {
+        try {
+            InputStream is = getClass().getResourceAsStream(user.getProfile());
+            if (is != null) {
+                return new Image(is);
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading default image: " + e.getMessage());
+        }
+
+
+        return new Image("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=");
     }
 
     private Button createLogoutButton() {
