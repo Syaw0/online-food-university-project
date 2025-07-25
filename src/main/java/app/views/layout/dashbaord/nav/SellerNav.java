@@ -15,7 +15,8 @@ public class SellerNav extends BaseNav {
                 createNavButton("لیست غذا ها", "seller_food_list"),
                 createNavButton("لیست سفارشات معلق", "seller_pending_order_list"),
                 createNavButton("لیست سفارشات در حال انجام", "seller_in_progress_order_list"),
-                createNavButton("لیست سفاراشت تکمیل شده", "seller_complete_order_list")
+                createNavButton("لیست سفاراشت تکمیل شده", "seller_complete_order_list"),
+                createNavButton("اعلان ها", "notification")
         );
         return navItems;
     }

@@ -757,3 +757,118 @@
     -fx-font-weight: bold;
     -fx-padding: 8 15;
 }
+
+/*--------------------------------------------------NOTIFICATION PAGE(SHARED)--------------------------------------------------*/
+
+.notification-page-root {
+    -fx-background-color: #f8f9fc;
+    -fx-padding: 24;
+    -fx-spacing: 16;
+}
+
+.notification-page-header {
+    -fx-padding: 0 0 20 0;
+}
+
+.notification-page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.notification-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.notification-scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.notification-scroll-pane .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.notification-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #e1e8ed;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-spacing: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+
+.notification-card:hover {
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(gaussian, rgba(52,152,219,0.2), 12, 0, 0, 4);
+}
+
+.notification-header {
+    -fx-spacing: 12;
+    -fx-alignment: center-left;
+}
+
+.notification-icon {
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+    -fx-background-radius: 20;
+    -fx-alignment: center;
+}
+
+.notification-icon-order {
+    -fx-background-color: #3498db;
+}
+
+.notification-icon-payment {
+    -fx-background-color: #27ae60;
+}
+
+.notification-icon-delivery {
+    -fx-background-color: #f39c12;
+}
+
+.notification-icon-system {
+    -fx-background-color: #9b59b6;
+}
+
+.notification-icon-text {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.notification-content {
+    -fx-spacing: 8;
+}
+
+.notification-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.notification-message {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+    -fx-wrap-text: true;
+}
+
+.notification-time {
+    -fx-font-size: 12px;
+    -fx-text-fill: #95a5a6;
+}
+
+.empty-state {
+    -fx-alignment: center;
+    -fx-spacing: 16;
+    -fx-padding: 60;
+}
+
+.empty-state-text {
+    -fx-font-size: 18px;
+    -fx-text-fill: #7f8c8d;
+}

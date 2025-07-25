@@ -12,6 +12,7 @@ import app.views.pages.buyer.RestaurantListPage;
 import app.views.pages.delivery.DeliveryCompleteOrderListPage;
 import app.views.pages.delivery.DeliveryProgressOrderListPage;
 import app.views.pages.seller.*;
+import app.views.pages.shared.NotificationPage;
 import app.views.pages.shared.ProfilePage;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
@@ -84,6 +85,10 @@ public class Main {
 //            ======= SHARED =======
             case "profile":
                 scrollContainer.setContent(new ProfilePage(currentUser));
+                break;
+
+            case "notification":
+                scrollContainer.setContent(new NotificationPage(currentUser));
                 break;
 
 //            ======= BUYER =======

@@ -15,7 +15,8 @@ public class BuyerNav extends BaseNav {
                 createNavButton("سبد خرید", "buyer_cart"),
                 createNavButton("لیست سفارشات در حال انجام", "buyer_in_progress_order_list"),
                 createNavButton("لیست سفارشات تکمیل شده", "buyer_complete_order_list"),
-                createNavButton("کیف پول", "buyer_wallet")
+                createNavButton("کیف پول", "buyer_wallet"),
+                createNavButton("اعلان ها", "notification")
 
 
         );

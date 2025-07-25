@@ -44,7 +44,7 @@ public class LoginForm extends VBox {
 
         phoneField = new TextFieldComponent();
         phoneField.setPromptText("شماره تماس");
-        phoneField.setText("09001234567");
+        phoneField.setText("09129876543");
 
         passField = new PasswordFieldComponent();
         passField.setPromptText("رمز عبور");

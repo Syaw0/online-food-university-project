@@ -11,7 +11,9 @@ public class DeliveryNav extends BaseNav {
         navItems.getChildren().addAll(
                 createNavButton("لیست سفارشات در حال جریان", "delivery_in_progress_order_list"),
                 createNavButton("لیست سفارشات تکمیل شده", "delivery_complete_order_list"),
-                createNavButton("پروفایل کاربری", "profile")
+                createNavButton("پروفایل کاربری", "profile"),
+                createNavButton("اعلان ها", "notification")
+
         );
         return navItems;
     }
