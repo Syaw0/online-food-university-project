@@ -49,7 +49,7 @@ public class UserRepo {
                 "",
                 "admin@example.com",
                 UserType.ADMIN,
-                "/assets/images/default-profile.png",
+                "/assets/images/users/user1.png",
                 "",false
         ));
 
@@ -61,7 +61,7 @@ public class UserRepo {
                 "",
                 "admin@example.com",
                 UserType.BUYER,
-                "/assets/images/default-profile.png",
+                "/assets/images/users/user2.png",
                 "",false
         ));
 
@@ -73,7 +73,7 @@ public class UserRepo {
                 null,
                 "delivery@example.com",
                 UserType.DELIVERY,
-                "/assets/images/default-profile.png",
+                "/assets/images/users/user3.png",
                 "",false
 
         ));
@@ -87,7 +87,7 @@ public class UserRepo {
                 null,
                 "delivery@example.com",
                 UserType.SELLER,
-                "/assets/images/default-profile.png","",
+                "/assets/images/users/user4.png","",
                 false
         ));
 

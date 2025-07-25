@@ -17,8 +17,8 @@ public class CommentRepo {
         comments.add(new Comment(
                 "1",
                 "1", 
-                "1", 
-                "/assets/images/comment1.png",
+                "1",
+                "/assets/images/comments/comment1.png",
                 "تجربه عالی",
                 "کباب بختیاری واقعاً عالی بود، گوشت تازه و نرم و برنجش هم داغ و خوش پخت. حتماً دوباره سفارش میدم",
                 "5"
@@ -38,7 +38,7 @@ public class CommentRepo {
                 "3",
                 "3", 
                 "1", 
-                "/assets/images/comment3.png",
+                "/assets/images/comments/comment3.png",
                 "بی نظیر",
                 "استیک واقعاً آبدار و لذیذ بود، سیب زمینی دودی هم حسابی مزه داشت. قیمتش کمی بالاست ولی ارزشش رو دارد",
                 "5"
@@ -48,7 +48,7 @@ public class CommentRepo {
                 "4",
                 "5", 
                 "3", 
-                "/assets/images/comment4.png",
+                "/assets/images/comments/comment4.png",
                 "انتظار بیشتری داشتم",
                 "برگر خشک بود و سسش کافی نبود، سیب زمینی هم به اندازه کافی ترد نبود",
                 "3"

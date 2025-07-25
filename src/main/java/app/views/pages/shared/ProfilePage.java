@@ -90,7 +90,7 @@ public class ProfilePage extends VBox {
 
     private Image loadDefaultImage() {
         try {
-            InputStream is = getClass().getResourceAsStream("/images/default-profile.png");
+            InputStream is = getClass().getResourceAsStream("/assets/images/users/default.png");
             if (is != null) {
                 return new Image(is);
             }

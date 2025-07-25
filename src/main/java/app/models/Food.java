@@ -20,21 +20,22 @@ public class Food {
     public Food(String id, String restaurantId, String name, String description,
                 String price, String stock, String categoryId,
                 String image, String totalRate) {
-        
+
         if (id == null || id.trim().isEmpty()) {
             this.id.set(UUID.randomUUID().toString());
         } else {
             this.id.set(id);
         }
 
-        this.restaurantId.set(restaurantId);
-        this.name.set(name);
-        this.description.set(description);
-        this.price.set(price);
-        this.stock.set(stock);
-        this.categoryId.set(categoryId);
-        this.image.set(image);
-        this.totalRate.set(totalRate);
+        
+        this.restaurantId.set(restaurantId != null ? restaurantId : "");
+        this.name.set(name != null ? name : "غذای بدون نام");
+        this.description.set(description != null ? description : "توضیحی موجود نیست");
+        this.price.set(price != null ? price : "0");
+        this.stock.set(stock != null ? stock : "0");
+        this.categoryId.set(categoryId != null ? categoryId : "متفرقه");
+        this.image.set(image != null ? image : "/assets/images/foods/default.png");
+        this.totalRate.set(totalRate != null ? totalRate : "0.0");
         this.creationDate.set(LocalDate.now().toString());
     }
 
@@ -51,27 +52,92 @@ public class Food {
     public StringProperty creationDateProperty() { return creationDate; }
 
     
-    public String getId() { return id.get(); }
-    public String getRestaurantId() { return restaurantId.get(); }
-    public String getName() { return name.get(); }
-    public String getDescription() { return description.get(); }
-    public String getPrice() { return price.get(); }
-    public String getStock() { return stock.get(); }
-    public String getCategoryId() { return categoryId.get(); }
-    public String getImage() { return image.get(); }
-    public String getTotalRate() { return totalRate.get(); }
-    public String getCreationDate() { return creationDate.get(); }
+    public String getId() {
+        String value = id.get();
+        return value != null ? value : "";
+    }
+
+    public String getRestaurantId() {
+        String value = restaurantId.get();
+        return value != null ? value : "";
+    }
+
+    public String getName() {
+        String value = name.get();
+        return value != null ? value : "غذای بدون نام";
+    }
+
+    public String getDescription() {
+        String value = description.get();
+        return value != null ? value : "توضیحی موجود نیست";
+    }
+
+    public String getPrice() {
+        String value = price.get();
+        return value != null ? value : "0";
+    }
+
+    public String getStock() {
+        String value = stock.get();
+        return value != null ? value : "0";
+    }
+
+    public String getCategoryId() {
+        String value = categoryId.get();
+        return value != null ? value : "متفرقه";
+    }
+
+    public String getImage() {
+        String value = image.get();
+        return value != null ? value : "/assets/images/foods/default.png";
+    }
+
+    public String getTotalRate() {
+        String value = totalRate.get();
+        return value != null ? value : "0.0";
+    }
+
+    public String getCreationDate() {
+        String value = creationDate.get();
+        return value != null ? value : LocalDate.now().toString();
+    }
 
     
-    public void setId(String id) { this.id.set(id); }
-    public void setRestaurantId(String restaurantId) { this.restaurantId.set(restaurantId); }
-    public void setName(String name) { this.name.set(name); }
-    public void setDescription(String description) { this.description.set(description); }
-    public void setPrice(String price) { this.price.set(price); }
-    public void setStock(String stock) { this.stock.set(stock); }
-    public void setCategoryId(String categoryId) { this.categoryId.set(categoryId); }
-    public void setImage(String image) { this.image.set(image); }
-    public void setTotalRate(String totalRate) { this.totalRate.set(totalRate); }
+    public void setId(String id) {
+        this.id.set(id != null ? id : UUID.randomUUID().toString());
+    }
+
+    public void setRestaurantId(String restaurantId) {
+        this.restaurantId.set(restaurantId != null ? restaurantId : "");
+    }
+
+    public void setName(String name) {
+        this.name.set(name != null ? name : "غذای بدون نام");
+    }
+
+    public void setDescription(String description) {
+        this.description.set(description != null ? description : "توضیحی موجود نیست");
+    }
+
+    public void setPrice(String price) {
+        this.price.set(price != null ? price : "0");
+    }
+
+    public void setStock(String stock) {
+        this.stock.set(stock != null ? stock : "0");
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId.set(categoryId != null ? categoryId : "متفرقه");
+    }
+
+    public void setImage(String image) {
+        this.image.set(image != null ? image : "/assets/images/foods/default.png");
+    }
+
+    public void setTotalRate(String totalRate) {
+        this.totalRate.set(totalRate != null ? totalRate : "0.0");
+    }
 
     @Override
     public String toString() {

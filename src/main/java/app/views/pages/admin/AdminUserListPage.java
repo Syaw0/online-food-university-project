@@ -146,7 +146,7 @@ public class AdminUserListPage extends VBox {
                     userRepo.giveFakeAddress(),
                     fakeEmails.get(i % fakeEmails.size()),
                     type,
-                    "/assets/images/default-profile.png",
+                    "/assets/images/users/default.png",
                     (type == UserType.SELLER || type == UserType.DELIVERY) ? "IR" + (1000000 + i) : "",
                     random.nextBoolean()
             ));

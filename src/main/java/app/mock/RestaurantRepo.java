@@ -69,16 +69,16 @@ public class RestaurantRepo {
     };
 
     private final String[] images = {
-            "/assets/images/restaurant1.png",
-            "/assets/images/restaurant2.png",
-            "/assets/images/restaurant3.png",
-            "/assets/images/restaurant4.png",
-            "/assets/images/restaurant5.png",
-            "/assets/images/restaurant6.png",
-            "/assets/images/restaurant7.png",
-            "/assets/images/restaurant8.png",
-            "/assets/images/restaurant9.png",
-            "/assets/images/restaurant10.png"
+            "/assets/images/restaurant/restaurant1.png",
+            "/assets/images/restaurant/restaurant2.png",
+            "/assets/images/restaurant/restaurant3.png",
+            "/assets/images/restaurant/restaurant4.png",
+            "/assets/images/restaurant/restaurant5.png",
+            "/assets/images/restaurant/restaurant6.png",
+            "/assets/images/restaurant/restaurant7.png",
+            "/assets/images/restaurant/restaurant8.png",
+            "/assets/images/restaurant/restaurant9.png",
+            "/assets/images/restaurant/restaurant10.png"
     };
 
     public RestaurantRepo() {

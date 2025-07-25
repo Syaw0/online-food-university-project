@@ -5,10 +5,7 @@ import app.states.StateManager;
 import app.views.component.ButtonComponent;
 import app.views.component.Typography;
 import app.views.pages.admin.*;
-import app.views.pages.buyer.BuyerCompleteOrderListPage;
-import app.views.pages.buyer.BuyerInProgressOrderListPage;
-import app.views.pages.buyer.CartPage;
-import app.views.pages.buyer.RestaurantListPage;
+import app.views.pages.buyer.*;
 import app.views.pages.delivery.DeliveryCompleteOrderListPage;
 import app.views.pages.delivery.DeliveryProgressOrderListPage;
 import app.views.pages.seller.*;
@@ -93,6 +90,11 @@ public class Main {
 
 //            ======= BUYER =======
 
+            case "buyer_dashboard":
+                scrollContainer.setContent(new BuyerDashboardPage(currentUser));
+                break;
+
+
             case "buyer_restaurant_list":
                 scrollContainer.setContent(new RestaurantListPage());
                 break;
@@ -164,46 +166,54 @@ public class Main {
 
     // IMPLEMENTED: Create dashboard content
     private VBox createDashboardContent(User user) {
-        if(user.getUserType() == UserType.ADMIN) {
-            return new SystemHealthPage();
-        }
-        VBox content = new VBox(20);
-        content.getStyleClass().add("content-area");
-        content.setPadding(new Insets(20));
 
-        Label title = new Typography("داشبورد کاربری", Typography.Variant.H2);
-        title.setAlignment(Pos.CENTER_RIGHT);
-
-        VBox userInfoPanel = new VBox(10);
-        userInfoPanel.getStyleClass().add("info-panel");
-        userInfoPanel.setPadding(new Insets(15));
-
-        userInfoPanel.getChildren().addAll(
-                new Label("نام کامل: " + user.getFullName()),
-                new Label("ایمیل: " + user.getEmail()),
-                new Label("نوع حساب: " + user.getUserType().toString())
-        );
-
-        VBox roleContent = new VBox(10);
-        roleContent.getStyleClass().add("role-content");
-
-        switch (user.getUserType()) {
-            case BUYER:
-                roleContent.getChildren().add(new Typography("سفارشات اخیر", Typography.Variant.H3));
-                break;
-            case SELLER:
-                roleContent.getChildren().add(new Typography("آمار فروش امروز", Typography.Variant.H3));
-                break;
-            case ADMIN:
-                roleContent.getChildren().add(new Typography("مدیریت سیستم", Typography.Variant.H3));
-                break;
-            case DELIVERY:
-                roleContent.getChildren().add(new Typography("سفارشات فعال", Typography.Variant.H3));
-                break;
-        }
-
-        content.getChildren().addAll(title, userInfoPanel, roleContent);
-        return content;
+        return switch (user.getUserType()){
+            case ADMIN ->
+                new SystemHealthPage();
+            case BUYER -> new BuyerDashboardPage(user);
+            default -> new SystemHealthPage();
+        };
+//
+//        if(user.getUserType() == UserType.ADMIN) {
+//            return new SystemHealthPage();
+//        }
+//        VBox content = new VBox(20);
+//        content.getStyleClass().add("content-area");
+//        content.setPadding(new Insets(20));
+//
+//        Label title = new Typography("داشبورد کاربری", Typography.Variant.H2);
+//        title.setAlignment(Pos.CENTER_RIGHT);
+//
+//        VBox userInfoPanel = new VBox(10);
+//        userInfoPanel.getStyleClass().add("info-panel");
+//        userInfoPanel.setPadding(new Insets(15));
+//
+//        userInfoPanel.getChildren().addAll(
+//                new Label("نام کامل: " + user.getFullName()),
+//                new Label("ایمیل: " + user.getEmail()),
+//                new Label("نوع حساب: " + user.getUserType().toString())
+//        );
+//
+//        VBox roleContent = new VBox(10);
+//        roleContent.getStyleClass().add("role-content");
+//
+//        switch (user.getUserType()) {
+//            case BUYER:
+//                roleContent.getChildren().add(new Typography("سفارشات اخیر", Typography.Variant.H3));
+//                break;
+//            case SELLER:
+//                roleContent.getChildren().add(new Typography("آمار فروش امروز", Typography.Variant.H3));
+//                break;
+//            case ADMIN:
+//                roleContent.getChildren().add(new Typography("مدیریت سیستم", Typography.Variant.H3));
+//                break;
+//            case DELIVERY:
+//                roleContent.getChildren().add(new Typography("سفارشات فعال", Typography.Variant.H3));
+//                break;
+//        }
+//
+//        content.getChildren().addAll(title, userInfoPanel, roleContent);
+//        return content;
     }
 
     // View creation methods for different sections

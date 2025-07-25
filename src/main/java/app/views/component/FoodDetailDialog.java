@@ -22,6 +22,7 @@ public class FoodDetailDialog extends Dialog<Void> {
     private final TextArea commentDescriptionArea = new TextArea();
     private final ComboBox<Integer> ratingCombo = new ComboBox<>();
     private final Food food;
+    private String selectedImagePath = null;
 
     public FoodDetailDialog(Food food, boolean showFormAndButton) {
         this.food = food;
@@ -168,23 +169,42 @@ public class FoodDetailDialog extends Dialog<Void> {
         HBox header = new HBox(10);
         header.setAlignment(Pos.CENTER_LEFT);
 
-        
+
+        if (comment.getPicture() != null && !comment.getPicture().trim().isEmpty()) {
+            ImageView commentImage = new ImageView();
+            try {
+                commentImage.setImage(new Image(comment.getPicture()));
+            } catch (Exception e) {
+
+                commentImage.setImage(new Image("file:src/main/resources/assets/images/default-comment.png"));
+            }
+
+
+            commentImage.setFitWidth(60);
+            commentImage.setFitHeight(60);
+            commentImage.setPreserveRatio(false);
+            commentImage.setStyle("-fx-border-color: #ddd; -fx-border-width: 1; -fx-border-radius: 5;");
+
+            header.getChildren().add(commentImage);
+        }
+
+
         VBox userInfo = new VBox(5);
         Label userName = new Label("کاربر " + comment.getUserId());
         userName.setStyle("-fx-font-weight: bold;");
 
-        
+
         HBox starsBox = new HBox(5);
         int stars = Integer.parseInt(comment.getStars());
         starsBox.getChildren().add(createRatingStars(stars));
 
         userInfo.getChildren().addAll(userName, starsBox);
-
         header.getChildren().add(userInfo);
 
-        
+
         Label title = new Label(comment.getTitle());
         title.setStyle("-fx-font-weight: bold;");
+
 
         Label description = new Label(comment.getDescription());
         description.setWrapText(true);
@@ -193,27 +213,28 @@ public class FoodDetailDialog extends Dialog<Void> {
         return card;
     }
 
+
     private HBox createRatingStars(double rating) {
         HBox starsBox = new HBox(5);
         int fullStars = (int) rating;
         int halfStar = (rating - fullStars) > 0.5 ? 1 : 0;
         int emptyStars = 5 - fullStars - halfStar;
 
-        
+
         for (int i = 0; i < fullStars; i++) {
             Label star = new Label("★");
             star.setStyle("-fx-text-fill: #FFD700; -fx-font-size: 16;");
             starsBox.getChildren().add(star);
         }
 
-        
+
         if (halfStar > 0) {
             Label star = new Label("★");
             star.setStyle("-fx-text-fill: #FFD700; -fx-font-size: 16; -fx-opacity: 0.7;");
             starsBox.getChildren().add(star);
         }
 
-        
+
         for (int i = 0; i < emptyStars; i++) {
             Label star = new Label("☆");
             star.setStyle("-fx-text-fill: #999; -fx-font-size: 16;");
@@ -232,23 +253,23 @@ public class FoodDetailDialog extends Dialog<Void> {
         Label formTitle = new Label("ثبت نظر جدید");
         formTitle.setStyle("-fx-font-weight: bold; -fx-font-size: 16;");
 
-        
+
         HBox titleBox = new HBox(10);
         titleBox.setAlignment(Pos.CENTER_LEFT);
         commentTitleField.setPromptText("عنوان نظر");
         commentTitleField.setPrefWidth(300);
         Label titleLabel = new Label("عنوان:");
-        titleBox.getChildren().addAll(titleLabel,commentTitleField);
+        titleBox.getChildren().addAll(titleLabel, commentTitleField);
 
-        
+
         HBox descBox = new HBox(10);
         descBox.setAlignment(Pos.CENTER_LEFT);
         commentDescriptionArea.setPromptText("متن کامل نظر");
         commentDescriptionArea.setPrefRowCount(3);
         Label descLabel = new Label("متن نظر:");
-        descBox.getChildren().addAll(descLabel,commentDescriptionArea);
+        descBox.getChildren().addAll(descLabel, commentDescriptionArea);
 
-        
+
         HBox ratingBox = new HBox(10);
         ratingBox.setAlignment(Pos.CENTER_LEFT);
         ratingCombo.getItems().addAll(1, 2, 3, 4, 5);
@@ -256,16 +277,68 @@ public class FoodDetailDialog extends Dialog<Void> {
         ratingCombo.setCellFactory(p -> new RatingListCell());
         ratingCombo.setButtonCell(new RatingListCell());
         Label ratingLabel = new Label("امتیاز:");
-        ratingBox.getChildren().addAll(ratingLabel,ratingCombo);
+        ratingBox.getChildren().addAll(ratingLabel, ratingCombo);
 
-        
+
+        HBox imageBox = new HBox(10);
+        imageBox.setAlignment(Pos.CENTER_LEFT);
+
+        Button selectImageButton = new Button("انتخاب تصویر");
+        selectImageButton.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white;");
+
+        Label imageStatusLabel = new Label("هیچ تصویری انتخاب نشده");
+        imageStatusLabel.setStyle("-fx-text-fill: #666;");
+
+
+        ImageView previewImage = new ImageView();
+        previewImage.setFitWidth(50);
+        previewImage.setFitHeight(50);
+        previewImage.setPreserveRatio(false);
+        previewImage.setStyle("-fx-border-color: #ddd; -fx-border-width: 1; -fx-border-radius: 3;");
+        previewImage.setVisible(false);
+
+        selectImageButton.setOnAction(e -> {
+            javafx.stage.FileChooser fileChooser = new javafx.stage.FileChooser();
+            fileChooser.setTitle("انتخاب تصویر نظر");
+            fileChooser.getExtensionFilters().addAll(
+                    new javafx.stage.FileChooser.ExtensionFilter("تصاویر", "*.png", "*.jpg", "*.jpeg", "*.gif")
+            );
+
+            java.io.File selectedFile = fileChooser.showOpenDialog(getDialogPane().getScene().getWindow());
+            if (selectedFile != null) {
+                selectedImagePath = selectedFile.toURI().toString();
+                imageStatusLabel.setText("تصویر انتخاب شد: " + selectedFile.getName());
+                imageStatusLabel.setStyle("-fx-text-fill: #4CAF50; -fx-font-weight: bold;");
+
+
+                try {
+                    previewImage.setImage(new Image(selectedImagePath));
+                    previewImage.setVisible(true);
+                } catch (Exception ex) {
+                    imageStatusLabel.setText("خطا در بارگذاری تصویر");
+                    imageStatusLabel.setStyle("-fx-text-fill: #f44336;");
+                    previewImage.setVisible(false);
+                }
+            }
+        });
+
+        Label imageLabel = new Label("تصویر (اختیاری):");
+        VBox imageContent = new VBox(5);
+        HBox imageButtonBox = new HBox(10);
+        imageButtonBox.getChildren().addAll(selectImageButton, previewImage);
+        imageContent.getChildren().addAll(imageButtonBox, imageStatusLabel);
+
+        imageBox.getChildren().addAll(imageLabel, imageContent);
+
+
         Button submitButton = new Button("ثبت نظر");
         submitButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;");
         submitButton.setOnAction(e -> submitComment());
 
-        form.getChildren().addAll(formTitle, titleBox, descBox, ratingBox, submitButton);
+        form.getChildren().addAll(formTitle, titleBox, descBox, ratingBox, imageBox, submitButton);
         return form;
     }
+
 
     private void submitComment() {
         if (commentTitleField.getText().isEmpty()) {
@@ -278,29 +351,34 @@ public class FoodDetailDialog extends Dialog<Void> {
             return;
         }
 
-        
+
         Comment newComment = new Comment(
                 null,
                 food.getId(),
-                "current_user_id", 
-                null,
+                "current_user_id",
+                selectedImagePath,
                 commentTitleField.getText(),
                 commentDescriptionArea.getText(),
                 ratingCombo.getValue().toString()
         );
 
-        
+
+
+
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("موفقیت");
         alert.setHeaderText(null);
         alert.setContentText("نظر شما با موفقیت ثبت شد!");
         alert.showAndWait();
 
-        
+
         commentTitleField.clear();
         commentDescriptionArea.clear();
         ratingCombo.setValue(5);
+        selectedImagePath = null;
     }
+
 
     private void handleAddToCart() {
         

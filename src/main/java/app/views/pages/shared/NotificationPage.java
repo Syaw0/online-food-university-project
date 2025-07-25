@@ -198,9 +198,7 @@ public class NotificationPage extends VBox {
         Label message = new Label(notification.getMessage());
         message.getStyleClass().add("notification-message");
 
-        content.getChildren().addAll(title
-
-        );
+        content.getChildren().addAll(title,message);
 
         
         Label timeLabel = new Label(notification.getTime());
