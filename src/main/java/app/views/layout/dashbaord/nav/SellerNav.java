@@ -10,7 +10,7 @@ public class SellerNav extends BaseNav {
     protected VBox getUserSpecificNavItems(User user) {
         VBox navItems = new VBox(5);
         navItems.getChildren().addAll(
-                createNavButton("داشبورد", "seller-dashboard"),
+                createNavButton("داشبورد", "seller_dashboard"),
                 createNavButton("تنظیمات رستوران", "seller_restaurant_setting"),
                 createNavButton("لیست غذا ها", "seller_food_list"),
                 createNavButton("لیست سفارشات معلق", "seller_pending_order_list"),

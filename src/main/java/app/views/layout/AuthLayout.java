@@ -43,15 +43,15 @@ public class AuthLayout {
 
     private void setupRightPaneWithForm(Pane form) {
         BorderPane rightContent = new BorderPane();
-        rightContent.setPrefWidth(400); // Adjust as needed
+        rightContent.setPrefWidth(400); 
 
-        // Logo at top-right
+        
         HBox logoBox = new HBox(new LogoComponent());
         logoBox.setAlignment(Pos.TOP_RIGHT);
         logoBox.setPadding(new Insets(32, 32, 0, 0));
         rightContent.setTop(logoBox);
 
-        // Form centered in remaining space
+        
         VBox formBox = new VBox(form);
         formBox.setAlignment(Pos.CENTER);
         rightContent.setCenter(formBox);

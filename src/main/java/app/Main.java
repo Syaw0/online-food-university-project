@@ -13,13 +13,14 @@ import java.util.Objects;
 public class Main extends Application {
     @Override
     public void start(Stage stage) {
+        stage.setMaximized(true);
         Font.loadFont(Objects.requireNonNull(getClass().getResource("/assets/fonts/Vazirmatn-VariableFont_wght.ttf")).toExternalForm(), 14);
 
         NavigationController navigation = new NavigationController(stage);
         StateManager stateManager = StateManager.getInstance();
         stateManager.setNavigationController(navigation);
 
-        navigation.showAuthLayout(); // Start with auth layout
+        navigation.showAuthLayout();
         
         stage.show();
     }
